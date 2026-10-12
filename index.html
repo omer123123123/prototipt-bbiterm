@@ -1283,7 +1283,791 @@
 
     }
 
-  </style>
+  
+/* ===== PROFESYONEL CANLI TEMA ===== */
+:root {
+  --primary: #0b7a75;
+  --primary-dark: #075e5a;
+  --primary-light: #d9fbf6;
+  --secondary: #0b8fd3;
+  --accent: #f59e0b;
+  --background: #f3f8fa;
+  --surface: #ffffff;
+  --text: #16333b;
+  --muted: #64748b;
+  --border: #d9e7eb;
+  --shadow: 0 14px 40px rgba(7, 94, 90, .10);
+}
+
+body {
+  background:
+    radial-gradient(circle at 10% 5%, rgba(11,143,211,.08), transparent 24%),
+    radial-gradient(circle at 90% 10%, rgba(11,122,117,.08), transparent 22%),
+    var(--background);
+}
+
+.sidebar {
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255,255,255,.16), transparent 20%),
+    linear-gradient(160deg, #075e5a 0%, #087f78 48%, #075985 100%);
+}
+
+.sidebar nav a {
+  position: relative;
+  overflow: hidden;
+}
+
+.sidebar nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: width .25s ease;
+}
+
+.sidebar nav a:hover::after,
+.sidebar nav a.active::after {
+  width: 100%;
+}
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 80% 25%, rgba(255,255,255,.22), transparent 18%),
+    radial-gradient(circle at 95% 85%, rgba(255,255,255,.14), transparent 25%),
+    linear-gradient(135deg, #075e5a, #0b7a75 48%, #087fbd);
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.hero::before {
+  width: 260px;
+  height: 260px;
+  right: -80px;
+  top: -110px;
+  border: 35px solid rgba(255,255,255,.08);
+}
+
+.hero::after {
+  width: 180px;
+  height: 180px;
+  right: 24%;
+  bottom: -120px;
+  border: 28px solid rgba(255,255,255,.07);
+}
+
+.hero-symbol {
+  animation: floatMedical 4s ease-in-out infinite;
+  filter: drop-shadow(0 15px 20px rgba(0,0,0,.15));
+}
+
+@keyframes floatMedical {
+  0%,100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(2deg); }
+}
+
+.stat {
+  position: relative;
+  overflow: hidden;
+}
+
+.stat::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+}
+
+.learning-card,
+.term-card,
+.structure-card,
+.dictionary-panel,
+.quiz-box {
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.learning-card:hover,
+.term-card:hover,
+.structure-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(11,122,117,.35);
+  box-shadow: 0 18px 45px rgba(7,94,90,.13);
+}
+
+.card-icon {
+  box-shadow: inset 0 0 0 1px rgba(11,122,117,.08);
+}
+
+.section-heading h2 {
+  position: relative;
+  display: inline-block;
+}
+
+.section-heading h2::after {
+  content: "";
+  display: block;
+  width: 55%;
+  height: 4px;
+  margin-top: 5px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.search-input {
+  background: rgba(255,255,255,.9);
+  box-shadow: 0 5px 18px rgba(15,23,42,.04);
+}
+
+.search-button,
+.quiz-start {
+  background: linear-gradient(135deg, #0b7a75, #087fbd);
+  box-shadow: 0 8px 20px rgba(8,127,189,.18);
+}
+
+.search-button:hover,
+.quiz-start:hover {
+  filter: brightness(1.05);
+  transform: translateY(-2px);
+}
+
+.filter-button.active {
+  background: linear-gradient(135deg, #0b7a75, #087fbd);
+  border-color: transparent;
+}
+
+.term-card {
+  position: relative;
+}
+
+.term-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 16px 16px 0 0;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.quiz-box {
+  border-top: 4px solid var(--primary);
+}
+
+.option {
+  position: relative;
+  overflow: hidden;
+}
+
+.option::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(11,122,117,.07), transparent);
+  transform: translateX(-100%);
+  transition: transform .4s ease;
+}
+
+.option:hover::after {
+  transform: translateX(100%);
+}
+
+/* ===== DÖNEN ÖĞRENME İPUCU ===== */
+.tip-rotator {
+  position: relative;
+  min-height: 205px;
+  padding: 24px;
+  border: 1px solid rgba(11,122,117,.18);
+  border-radius: 20px;
+  background:
+    linear-gradient(135deg, rgba(217,251,246,.92), rgba(235,248,255,.96));
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(7,94,90,.08);
+}
+
+.tip-rotator::before {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  right: -50px;
+  top: -65px;
+  border-radius: 50%;
+  border: 22px solid rgba(11,122,117,.08);
+}
+
+.tip-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.tip-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: white;
+  color: var(--primary-dark);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.tip-timer {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.tip-title {
+  margin: 0 0 8px;
+  color: var(--primary-dark);
+  font-family: "Baloo 2", cursive;
+  font-size: 24px;
+}
+
+.tip-text {
+  margin: 0;
+  color: var(--text);
+  font-size: 15px;
+}
+
+.tip-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4px;
+  background: rgba(11,122,117,.10);
+}
+
+.tip-progress-bar {
+  width: 100%;
+  height: 100%;
+  transform-origin: left;
+  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+}
+
+.tip-animate {
+  animation: tipChange .55s ease;
+}
+
+@keyframes tipChange {
+  0% { opacity: 0; transform: translateY(8px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.pulse-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 0 rgba(34,197,94,.45);
+  animation: pulseDot 1.8s infinite;
+}
+
+@keyframes pulseDot {
+  0% { box-shadow: 0 0 0 0 rgba(34,197,94,.45); }
+  70% { box-shadow: 0 0 0 8px rgba(34,197,94,0); }
+  100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+}
+
+
+/* ===== DARK CLINICAL / PREMIUM UI ===== */
+:root {
+  --primary: #43d9c5;
+  --primary-dark: #a3f5e8;
+  --primary-light: #153b3d;
+  --secondary: #66b8ff;
+  --background: #0a1018;
+  --surface: #111b27;
+  --text: #e7edf5;
+  --muted: #a0afc0;
+  --border: #263747;
+  --success: #4ade80;
+  --danger: #fb7185;
+  --shadow: 0 18px 48px rgba(0, 0, 0, .22);
+}
+
+html { color-scheme: dark; }
+body {
+  color: var(--text);
+  background:
+    radial-gradient(ellipse at 12% 0%, rgba(32, 126, 143, .15), transparent 32%),
+    radial-gradient(ellipse at 90% 12%, rgba(60, 100, 180, .12), transparent 28%),
+    #0a1018;
+}
+.sidebar {
+  background: linear-gradient(180deg, #0c1723 0%, #101e2b 55%, #0b2730 100%);
+  border-right: 1px solid #263747;
+  box-shadow: 10px 0 35px rgba(0,0,0,.22);
+}
+.brand-logo {
+  background: linear-gradient(145deg, rgba(67,217,197,.22), rgba(102,184,255,.14));
+  border: 1px solid rgba(117,238,225,.38);
+  box-shadow: 0 0 35px rgba(67,217,197,.10), inset 0 0 22px rgba(67,217,197,.06);
+}
+.sidebar nav a { color: #d8e5f1; }
+.sidebar nav a:hover, .sidebar nav a.active {
+  background: linear-gradient(90deg, rgba(67,217,197,.15), rgba(102,184,255,.08));
+  color: #eafffb;
+}
+.sidebar-note {
+  background: linear-gradient(145deg, #142734, #13202d);
+  border: 1px solid #2b4b56;
+  color: var(--text);
+  box-shadow: 0 10px 30px rgba(0,0,0,.16);
+}
+.hero {
+  background:
+    linear-gradient(100deg, rgba(7,18,28,.96) 0%, rgba(8,36,47,.90) 52%, rgba(8,52,68,.68) 100%),
+    url("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1800&q=85") center/cover,
+    linear-gradient(135deg, #102b39, #124f5c);
+  border: 1px solid rgba(115,221,223,.18);
+  box-shadow: 0 24px 65px rgba(0,0,0,.25);
+}
+.hero p, .eyebrow { color: #d3e8f0; }
+.eyebrow {
+  border-color: rgba(137,224,230,.25);
+  background: rgba(11,28,41,.48);
+}
+.hero-symbol {
+  filter: drop-shadow(0 14px 24px rgba(0,0,0,.45));
+  text-shadow: 0 0 35px rgba(67,217,197,.18);
+}
+.button-primary {
+  color: #071a20;
+  background: linear-gradient(135deg, #73efdc, #7bc6ff);
+}
+.button-secondary {
+  color: #eafaff;
+  border-color: rgba(170,225,239,.3);
+  background: rgba(10,25,37,.55);
+}
+.stat, .learning-card, .structure-card, .dictionary-panel, .quiz-box, .term-card {
+  background: linear-gradient(155deg, #121e2b, #101923);
+  border-color: #293a4a;
+  color: var(--text);
+  box-shadow: 0 12px 32px rgba(0,0,0,.14);
+}
+.stat strong { color: #72e9d9; }
+.section-heading h2 { color: #e7f5fa; }
+.section-heading p, .learning-card p, .term-card p { color: #a9b8c8; }
+.section-heading h2::after {
+  background: linear-gradient(90deg, #43d9c5, #66b8ff);
+}
+.card-icon {
+  background: linear-gradient(145deg, #1b3947, #1b2a3c);
+  border: 1px solid #2e5260;
+  box-shadow: inset 0 0 20px rgba(67,217,197,.05);
+}
+.search-input, .quiz-select {
+  color: #e7edf5;
+  background: #0d1722;
+  border-color: #304353;
+}
+.search-input::placeholder { color: #8193a6; }
+.search-input:focus, .quiz-select:focus {
+  border-color: #43d9c5;
+  box-shadow: 0 0 0 3px rgba(67,217,197,.10);
+}
+.search-button, .quiz-start {
+  color: #061a20;
+  background: linear-gradient(135deg, #43d9c5, #66b8ff);
+  box-shadow: 0 8px 24px rgba(67,217,197,.12);
+}
+.filter-button {
+  color: #c8d6e4;
+  background: #101b27;
+  border-color: #2b3b4b;
+}
+.filter-button.active, .filter-button:hover {
+  color: #061a20;
+  background: linear-gradient(135deg, #43d9c5, #66b8ff);
+  border-color: transparent;
+}
+.tag {
+  color: #aaf7eb;
+  background: #173a3e;
+  border: 1px solid #28535a;
+}
+.pronunciation { color: #8ecaff; }
+.term-origin {
+  color: #bdcbd8;
+  background: #0d1721;
+  border: 1px solid #243544;
+}
+.quiz-badge {
+  color: #aaf7eb;
+  background: #173a3e;
+}
+.quiz-box { border-top-color: #43d9c5; }
+.option {
+  color: #e2ebf4;
+  background: #0d1722;
+  border-color: #2a3d4e;
+}
+.option:hover:not(:disabled) {
+  background: #142a34;
+  border-color: #43d9c5;
+}
+.option.correct {
+  color: #d9ffeb;
+  background: #123527;
+  border-color: #36c878;
+}
+.option.wrong {
+  color: #ffe2e7;
+  background: #3a202a;
+  border-color: #fb7185;
+}
+.feedback { color: #d9e8f2; }
+.quiz-result {
+  color: #e1f9f5;
+  background: #123137;
+  border: 1px solid #285b60;
+}
+.word-example { background: #0d1722; border: 1px solid #2b3d4d; }
+.legend .prefix { background: #30254b; }
+.legend .root { background: #14364b; }
+.legend .suffix { background: #45242d; }
+.prefix { color: #c4a7ff; }
+.root { color: #8bd1ff; }
+.suffix { color: #ff9aaa; }
+.rule { background: #0d1722; border: 1px solid #253746; }
+.rule-number { color: #071a20; background: linear-gradient(135deg, #43d9c5, #66b8ff); }
+.no-result { color: #a9b8c8; }
+footer { border-color: #263747; color: #9babbc; }
+.menu-button { background: linear-gradient(135deg, #43d9c5, #66b8ff); color: #071a20; }
+
+/* A real, visible timed tip — not a detached script-only element */
+.tip-rotator {
+  position: relative;
+  display: block;
+  min-height: 188px;
+  padding: 14px 12px 18px;
+  margin-top: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(90, 208, 204, .25);
+  border-radius: 15px;
+  background: linear-gradient(145deg, rgba(20,49,60,.96), rgba(16,31,45,.98));
+}
+.tip-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 12px;
+}
+.tip-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #baf9ef;
+  font-size: 10px;
+  letter-spacing: .08em;
+  font-weight: 900;
+}
+.tip-timer {
+  color: #91aabd;
+  font-size: 11px;
+  font-weight: 800;
+}
+.tip-title {
+  margin: 0 0 7px;
+  color: #e7fffb;
+  font-size: 16px;
+  line-height: 1.3;
+}
+.tip-text {
+  margin: 0;
+  color: #b8cbd8;
+  font-size: 12px;
+  line-height: 1.55;
+}
+.tip-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: rgba(255,255,255,.08);
+}
+.tip-progress-bar {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #43d9c5, #66b8ff);
+  transform-origin: left;
+}
+.pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #43d9c5;
+  box-shadow: 0 0 0 4px rgba(67,217,197,.10);
+  animation: pulseDot 1.8s infinite;
+}
+.tip-animate { animation: tipChange .45s ease; }
+@keyframes tipChange {
+  from { opacity: .2; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
+
+/* Öğrenme ipucu - koyu tema */
+#tipRotator {
+  background: linear-gradient(145deg, #111827 0%, #0b1220 100%) !important;
+  background-color: #111827 !important;
+  color: #e5eef7 !important;
+  border-color: rgba(56,189,248,.22) !important;
+  box-shadow: 0 18px 45px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.025) !important;
+}
+#tipRotator .tip-label,
+#tipRotator .tip-title { color: #e5eef7 !important; }
+#tipRotator .tip-text { color: #b9c8d8 !important; }
+#tipRotator .tip-timer { color: #67e8f9 !important; }
+#tipRotator .tip-progress-bar {
+  background: linear-gradient(90deg,#22d3ee,#3b82f6) !important;
+}
+.tip-controls {
+  display:flex;
+  justify-content:flex-end;
+  margin-top:12px;
+}
+#tipToggle {
+  border:1px solid rgba(103,232,249,.30);
+  background:rgba(15,23,42,.92);
+  color:#dff8ff;
+  border-radius:10px;
+  padding:7px 12px;
+  font-weight:700;
+  font-size:.78rem;
+  cursor:pointer;
+  transition:.2s ease;
+}
+#tipToggle:hover {
+  background:rgba(34,211,238,.12);
+  border-color:rgba(103,232,249,.55);
+  transform:translateY(-1px);
+}
+#tipToggle.paused {
+  color:#bfdbfe;
+  border-color:rgba(96,165,250,.45);
+}
+
+
+/* ===== Sağlık Görsel Katmanı ===== */
+.health-visuals {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+  margin:18px 0 24px;
+}
+.health-visual-card {
+  position:relative;
+  overflow:hidden;
+  min-height:150px;
+  border:1px solid rgba(103,232,249,.16);
+  border-radius:18px;
+  padding:18px;
+  background:
+    radial-gradient(circle at 85% 15%, rgba(34,211,238,.15), transparent 34%),
+    linear-gradient(145deg,#111827,#0b1220);
+  box-shadow:0 14px 35px rgba(0,0,0,.22);
+  transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+.health-visual-card:hover {
+  transform:translateY(-4px);
+  border-color:rgba(103,232,249,.38);
+  box-shadow:0 20px 42px rgba(0,0,0,.30);
+}
+.health-visual-card .hv-icon {
+  width:54px;height:54px;
+  display:grid;place-items:center;
+  border-radius:16px;
+  font-size:29px;
+  background:rgba(15,23,42,.78);
+  border:1px solid rgba(255,255,255,.08);
+  margin-bottom:13px;
+}
+.health-visual-card h3 {
+  margin:0 0 5px;
+  color:#eef8ff;
+  font-size:1rem;
+}
+.health-visual-card p {
+  margin:0;
+  color:#9fb1c2;
+  font-size:.82rem;
+  line-height:1.55;
+}
+.health-visual-card .pulse-line {
+  position:absolute;
+  right:-8px;bottom:13px;
+  width:120px;height:32px;
+  opacity:.38;
+}
+.health-visual-card .pulse-line svg {
+  width:100%;height:100%;
+  fill:none;
+  stroke:#67e8f9;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.health-visual-card .mini-number {
+  margin-top:10px;
+  font-size:.78rem;
+  font-weight:800;
+  color:#67e8f9;
+}
+.health-dashboard-strip {
+  display:grid;
+  grid-template-columns:1.35fr 1fr 1fr 1fr;
+  gap:12px;
+  margin:0 0 24px;
+}
+.health-stat {
+  border:1px solid rgba(148,163,184,.14);
+  background:linear-gradient(145deg,#0f172a,#0b1220);
+  border-radius:15px;
+  padding:15px 16px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.health-stat .stat-icon {
+  font-size:23px;
+  width:42px;height:42px;
+  display:grid;place-items:center;
+  border-radius:12px;
+  background:rgba(34,211,238,.08);
+}
+.health-stat strong {
+  display:block;
+  color:#f1f7fb;
+  font-size:1rem;
+}
+.health-stat span {
+  display:block;
+  color:#8fa2b5;
+  font-size:.72rem;
+  margin-top:2px;
+}
+.health-mini-ecg {
+  height:34px;
+  margin-top:8px;
+  opacity:.85;
+}
+.health-mini-ecg svg {
+  width:100%;height:100%;
+  fill:none;
+  stroke:#22d3ee;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.system-visual-banner {
+  position:relative;
+  overflow:hidden;
+  margin:0 0 24px;
+  min-height:185px;
+  border-radius:20px;
+  border:1px solid rgba(96,165,250,.20);
+  background:
+    linear-gradient(90deg,rgba(7,13,25,.97) 0%,rgba(7,13,25,.88) 48%,rgba(7,13,25,.42) 100%),
+    url("https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=1600&q=85") center/cover;
+  display:flex;
+  align-items:center;
+  padding:26px;
+}
+.system-visual-banner .banner-copy {
+  max-width:650px;
+  position:relative;
+  z-index:2;
+}
+.system-visual-banner h2 {
+  margin:0 0 8px;
+  color:#f2f8ff;
+  font-size:1.45rem;
+}
+.system-visual-banner p {
+  margin:0;
+  color:#a9bac9;
+  line-height:1.6;
+  max-width:610px;
+}
+.medical-orbits {
+  position:absolute;
+  right:7%;
+  top:50%;
+  width:190px;height:190px;
+  transform:translateY(-50%);
+  opacity:.62;
+}
+.medical-orbits .orbit {
+  position:absolute;inset:0;
+  border:1px solid rgba(103,232,249,.25);
+  border-radius:50%;
+  animation:orbitSpin 16s linear infinite;
+}
+.medical-orbits .orbit:nth-child(2) {
+  inset:22px;
+  border-color:rgba(96,165,250,.25);
+  animation-duration:11s;
+  animation-direction:reverse;
+}
+.medical-orbits .orbit:nth-child(3) {
+  inset:55px;
+  border-color:rgba(45,212,191,.28);
+  animation-duration:7s;
+}
+.medical-orbits .core {
+  position:absolute;
+  left:50%;top:50%;
+  transform:translate(-50%,-50%);
+  width:62px;height:62px;
+  display:grid;place-items:center;
+  border-radius:50%;
+  background:radial-gradient(circle,#164e63,#0f172a 70%);
+  border:1px solid rgba(103,232,249,.35);
+  font-size:30px;
+  box-shadow:0 0 35px rgba(34,211,238,.15);
+}
+@keyframes orbitSpin { to { transform:rotate(360deg); } }
+@media (max-width:900px) {
+  .health-visuals { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .health-dashboard-strip { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .medical-orbits { opacity:.22; right:-10px; }
+}
+@media (max-width:560px) {
+  .health-visuals,.health-dashboard-strip { grid-template-columns:1fr; }
+  .system-visual-banner { padding:20px; min-height:210px; }
+}
+
+</style>
 <style>
 .filters{max-height:230px;overflow:auto;padding-right:4px}
 .learning-card{cursor:pointer}
@@ -1359,17 +2143,17 @@
     </nav>
 
 
-    <div class="sidebar-note">
-
-      <strong>💡 Öğrenme ipucu</strong>
-
-      <br><br>
-
-      Tıbbi terimleri öğrenirken
-      <b>önek + kök + sonek</b>
-      yapılarını birlikte incelemek,
-      kelimenin anlamını tahmin etmeyi kolaylaştırır.
-
+    <div class="sidebar-note tip-rotator" id="tipRotator">
+      <div class="tip-top">
+        <span class="tip-label"><span class="pulse-dot"></span> CANLI ÖĞRENME İPUCU</span>
+        <span class="tip-timer" id="tipTimer">7 sn</span>
+      </div>
+      <h3 class="tip-title" id="tipTitle">Terimleri parçalara ayır</h3>
+      <p class="tip-text" id="tipText">Ön ek, kök ve son eki birlikte inceleyerek tıbbi terimlerin anlamını daha kolay çözebilirsin.</p>
+      <div class="tip-controls"><button id="tipToggle" type="button" aria-pressed="false">⏸ Durdur</button></div>
+      <div class="tip-progress">
+        <div class="tip-progress-bar" id="tipProgressBar"></div>
+      </div>
     </div>
 
   </aside>
@@ -1378,6 +2162,66 @@
   <!-- ANA İÇERİK -->
 
   <main class="main">
+
+<section class="system-visual-banner" aria-label="Sağlık ve tıp görsel alanı">
+  <div class="banner-copy">
+    <h2>🩺 Klinik Bilgi Merkezi</h2>
+    <p>İnsan vücudunun sistemlerini, temel tıbbi terminolojiyi ve klinik kavramları görsel destekli bir öğrenme deneyimiyle keşfet.</p>
+  </div>
+  <div class="medical-orbits" aria-hidden="true">
+    <div class="orbit"></div><div class="orbit"></div><div class="orbit"></div>
+    <div class="core">⚕️</div>
+  </div>
+</section>
+
+<section class="health-dashboard-strip" aria-label="Sağlık bilgi göstergeleri">
+  <div class="health-stat">
+    <div class="stat-icon">🫀</div>
+    <div><strong>Kalp & Dolaşım</strong><span>Kan akışı ve kardiyovasküler terminoloji</span></div>
+  </div>
+  <div class="health-stat">
+    <div class="stat-icon">🫁</div>
+    <div><strong>Solunum</strong><span>Akciğer ve hava yolları</span></div>
+  </div>
+  <div class="health-stat">
+    <div class="stat-icon">🧠</div>
+    <div><strong>Sinir Sistemi</strong><span>Beyin, omurilik ve sinirler</span></div>
+  </div>
+  <div class="health-stat">
+    <div class="stat-icon">🛡️</div>
+    <div><strong>Bağışıklık</strong><span>Lenfatik savunma mekanizmaları</span></div>
+  </div>
+</section>
+
+<section class="health-visuals" aria-label="Sağlık sistemleri görsel kartları">
+  <article class="health-visual-card">
+    <div class="hv-icon">❤️</div>
+    <h3>Kardiyovasküler Sistem</h3>
+    <p>Kalp, damarlar ve dolaşım ile ilişkili temel kavramları keşfet.</p>
+    <div class="mini-number">Kalp • Arter • Ven • Dolaşım</div>
+    <div class="pulse-line"><svg viewBox="0 0 120 32"><path d="M0 18h24l7-2 5 2 8-16 7 25 7-9h24l7-3 6 3 7-4 8 4h10"/></svg></div>
+  </article>
+  <article class="health-visual-card">
+    <div class="hv-icon">🫁</div>
+    <h3>Solunum Sistemi</h3>
+    <p>Solunum yolları, akciğerler ve oksijen alışverişine ait terimler.</p>
+    <div class="mini-number">Trakea • Bronş • Alveol • Ventilasyon</div>
+  </article>
+  <article class="health-visual-card">
+    <div class="hv-icon">🧠</div>
+    <h3>Nörolojik Sistem</h3>
+    <p>Beyin, omurilik ve periferik sinir sisteminin terminolojisi.</p>
+    <div class="mini-number">Nöron • Sinaps • Korteks • Refleks</div>
+  </article>
+  <article class="health-visual-card">
+    <div class="hv-icon">🦴</div>
+    <h3>Kas-İskelet Sistemi</h3>
+    <p>Kemik, eklem, kas ve hareket sistemiyle ilgili kavramlar.</p>
+    <div class="mini-number">Kemik • Eklem • Kas • Tendon</div>
+  </article>
+</section>
+
+
 
 
     <!-- HERO -->
@@ -8318,6 +9162,98 @@ menuButton.addEventListener("click",()=>{sidebar.classList.toggle("open");menuBu
 document.querySelectorAll(".sidebar nav a").forEach(link=>link.addEventListener("click",()=>sidebar.classList.remove("open")));
 document.getElementById("year").textContent=new Date().getFullYear();
 renderTerms();
+
+/* ===== ÇALIŞAN SÜRELİ ÖĞRENME İPUÇLARI ===== */
+const learningTips = [
+  { title: "Terimleri parçalara ayır", text: "Ön ek, kök ve son eki birlikte incele. Kelimenin parçaları anlamı çözmene yardımcı olur." },
+  { title: "Önce kökü bul", text: "Kök çoğunlukla organı, dokuyu veya temel anatomik yapıyı belirtir. Önce kökü tanımaya çalış." },
+  { title: "Son ekleri öğren", text: "-itis inflamasyonu, -ektomi cerrahi çıkarılmayı, -loji ise bilim veya inceleme alanını ifade eder." },
+  { title: "Benzer terimleri grupla", text: "Aynı kökü taşıyan terimleri birlikte öğrenmek, kelimeler arasında hafıza bağlantıları kurar." },
+  { title: "Yanlışlarını tekrar et", text: "Quizde yanlış yaptığın terimi sözlükten bul; açıklamasını ve kelime yapısını tekrar oku." },
+  { title: "Bir sistemi seç", text: "Her çalışma oturumunda tek bir sisteme odaklan. Örneğin bugün kalp-damar, sonraki oturumda solunum sistemi." },
+  { title: "Aktif hatırlama yap", text: "Açıklamayı okumadan önce terimin anlamını kendin söylemeye çalış. Sonra cevabını kontrol et." },
+  { title: "Kısa aralıklarla tekrar et", text: "Terimleri aynı gün, ertesi gün ve birkaç gün sonra yeniden gözden geçirmek öğrenmeyi pekiştirir." },
+  { title: "Telaffuzu da çalış", text: "Terimleri sesli söylemek, yazılı bilgiyi mesleki iletişimde kullanmanı kolaylaştırabilir." },
+  { title: "Örnekle bağ kur", text: "Her yeni terimi bir organ, yapı veya hastalık örneğiyle eşleştirerek öğren." }
+];
+
+let currentTipIndex = 0;
+const tipSeconds = 7;
+let tipRemaining = tipSeconds;
+const tipTitleEl = document.getElementById("tipTitle");
+const tipTextEl = document.getElementById("tipText");
+const tipTimerEl = document.getElementById("tipTimer");
+const tipProgressEl = document.getElementById("tipProgressBar");
+const tipCardEl = document.getElementById("tipRotator");
+
+function renderTimedTip() {
+  if (!tipTitleEl || !tipTextEl || !tipTimerEl || !tipProgressEl || !tipCardEl) return;
+
+  const tip = learningTips[currentTipIndex];
+  tipCardEl.classList.remove("tip-animate");
+  void tipCardEl.offsetWidth;
+  tipCardEl.classList.add("tip-animate");
+
+  tipTitleEl.textContent = tip.title;
+  tipTextEl.textContent = tip.text;
+  tipRemaining = tipSeconds;
+  tipTimerEl.textContent = `${tipRemaining} sn`;
+
+  tipProgressEl.style.transition = "none";
+  tipProgressEl.style.transform = "scaleX(1)";
+  requestAnimationFrame(() => {
+    tipProgressEl.style.transition = `transform ${tipSeconds}s linear`;
+    tipProgressEl.style.transform = "scaleX(0)";
+  });
+}
+
+renderTimedTip();
+
+let tipsRunning = true;
+let tipIntervalId = null;
+const tipToggleEl = document.getElementById("tipToggle");
+
+function updateTipButton() {
+  if (!tipToggleEl) return;
+  tipToggleEl.textContent = tipsRunning ? "⏸ Durdur" : "▶ Devam Et";
+  tipToggleEl.classList.toggle("paused", !tipsRunning);
+  tipToggleEl.setAttribute("aria-pressed", String(!tipsRunning));
+}
+
+function startTips() {
+  if (tipsRunning && tipIntervalId !== null) return;
+  tipsRunning = true;
+  updateTipButton();
+  if (tipTimerEl) tipTimerEl.textContent = `${tipRemaining} sn`;
+  if (tipIntervalId === null) {
+    tipIntervalId = window.setInterval(() => {
+      if (!tipsRunning) return;
+      tipRemaining -= 1;
+      if (tipRemaining <= 0) {
+        currentTipIndex = (currentTipIndex + 1) % learningTips.length;
+        renderTimedTip();
+      } else if (tipTimerEl) {
+        tipTimerEl.textContent = `${tipRemaining} sn`;
+      }
+    }, 1000);
+  }
+}
+
+function stopTips() {
+  tipsRunning = false;
+  updateTipButton();
+  if (tipTimerEl) tipTimerEl.textContent = "İpucu durduruldu";
+}
+
+if (tipToggleEl) {
+  tipToggleEl.addEventListener("click", () => {
+    if (tipsRunning) stopTips();
+    else startTips();
+  });
+}
+
+startTips();
+
 </script>
 </body>
 </html>
