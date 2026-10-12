@@ -3,17 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta
-    name="description"
-    content="Zübeyde Hanım Sağlık Hizmetleri Meslek Yüksekokulu Tıbbi Terminoloji Eğitim Platformu"
-  >
-  <title>Zübeyde Hanım SMHYO | Tıbbi Terminoloji</title>
-  <link rel="icon" href="favicon.png">
+  <meta name="description" content="Tıbbi Terminoloji Eğitim Platformu">
+  <title>Tıbbi Terminoloji Eğitim Platformu</title>
 
-  <link
-    href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap)"
-    rel="stylesheet"
-  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -21,17 +15,15 @@
       --primary-dark: #115e59;
       --primary-light: #ccfbf1;
       --secondary: #0284c7;
-      --secondary-light: #e0f2fe;
-      --accent: #f59e0b;
-      --danger: #dc2626;
-      --success: #15803d;
       --background: #f6fafb;
       --surface: #ffffff;
       --text: #16333b;
       --muted: #64748b;
       --border: #dce7ea;
-      --shadow: 0 12px 35px rgba(15, 118, 110, 0.1);
-      --sidebar-width: 280px;
+      --success: #15803d;
+      --danger: #dc2626;
+      --shadow: 0 12px 35px rgba(15, 118, 110, .10);
+      --sidebar-width: 265px;
     }
 
     * {
@@ -47,23 +39,16 @@
       line-height: 1.6;
     }
 
-    button,
-    input {
+    button, input, select {
       font: inherit;
+    }
+
+    button {
+      cursor: pointer;
     }
 
     a {
       color: inherit;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    section {
-      scroll-margin-top: 24px;
-      margin-bottom: 70px;
     }
 
     .sidebar {
@@ -71,43 +56,42 @@
       inset: 0 auto 0 0;
       z-index: 1000;
       width: var(--sidebar-width);
-      padding: 28px 22px;
+      padding: 25px 20px;
       overflow-y: auto;
-      color: #ffffff;
-      background:
-        radial-gradient(circle at top right, rgba(255, 255, 255, 0.17), transparent 28%),
-        linear-gradient(165deg, #0f766e, #075985);
-      box-shadow: 8px 0 30px rgba(15, 23, 42, 0.12);
+      color: white;
+      background: linear-gradient(165deg, #0f766e, #075985);
+      box-shadow: 8px 0 30px rgba(15, 23, 42, .12);
+      transition: transform .3s ease;
     }
 
     .brand {
       text-align: center;
+      margin-bottom: 28px;
     }
 
     .brand-logo {
       display: grid;
       place-items: center;
-      width: 88px;
-      height: 88px;
-      margin: 0 auto 16px;
-      border: 3px solid rgba(255, 255, 255, 0.8);
-      border-radius: 24px;
-      background: rgba(255, 255, 255, 0.14);
-      font-size: 42px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+      width: 78px;
+      height: 78px;
+      margin: 0 auto 12px;
+      border: 2px solid rgba(255,255,255,.7);
+      border-radius: 22px;
+      background: rgba(255,255,255,.14);
+      font-size: 40px;
     }
 
     .brand h1 {
       margin: 0;
       font-family: "Baloo 2", cursive;
-      font-size: 23px;
+      font-size: 22px;
       line-height: 1.2;
     }
 
     .brand p {
-      margin: 7px 0 24px;
+      margin: 8px 0 0;
       color: #dffafa;
-      font-size: 14px;
+      font-size: 13px;
     }
 
     .sidebar nav {
@@ -118,135 +102,117 @@
     .sidebar nav a {
       display: flex;
       align-items: center;
-      gap: 11px;
+      gap: 10px;
       padding: 11px 13px;
       border-radius: 12px;
-      color: #ffffff;
-      font-weight: 700;
+      color: white;
+      font-weight: 800;
       text-decoration: none;
-      transition: 0.25s ease;
+      transition: .2s;
     }
 
     .sidebar nav a:hover,
     .sidebar nav a.active {
-      background: rgba(255, 255, 255, 0.17);
-      transform: translateX(4px);
+      background: rgba(255,255,255,.17);
+      transform: translateX(3px);
     }
 
     .sidebar-note {
-      margin-top: 28px;
-      padding: 15px;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      border-radius: 15px;
-      background: rgba(255, 255, 255, 0.1);
+      margin-top: 25px;
+      padding: 14px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 14px;
+      background: rgba(255,255,255,.1);
       font-size: 13px;
     }
 
-    .sidebar-note strong {
-      display: block;
-      margin-bottom: 4px;
-    }
-
     .menu-button {
-      position: fixed;
-      top: 15px;
-      right: 15px;
-      z-index: 1200;
       display: none;
-      width: 46px;
-      height: 46px;
-      border: 0;
+      position: fixed;
+      top: 14px;
+      right: 14px;
+      z-index: 1200;
+      width: 45px;
+      height: 45px;
+      border: none;
       border-radius: 12px;
       background: var(--primary);
-      color: #ffffff;
-      font-size: 22px;
-      cursor: pointer;
+      color: white;
+      font-size: 23px;
       box-shadow: var(--shadow);
     }
 
     .main {
       margin-left: var(--sidebar-width);
-      padding: 32px clamp(20px, 4vw, 65px);
+      padding: 30px clamp(18px, 4vw, 55px);
+    }
+
+    section {
+      margin-bottom: 65px;
+      scroll-margin-top: 25px;
     }
 
     .hero {
-      position: relative;
-      overflow: hidden;
       display: grid;
-      grid-template-columns: 1.35fr 0.65fr;
+      grid-template-columns: 1.5fr .5fr;
       align-items: center;
-      min-height: 430px;
-      padding: clamp(35px, 6vw, 75px);
-      border-radius: 30px;
-      color: #ffffff;
+      min-height: 360px;
+      padding: clamp(28px, 5vw, 65px);
+      border-radius: 28px;
+      color: white;
       background:
-        radial-gradient(circle at 85% 20%, rgba(255, 255, 255, 0.24), transparent 18%),
+        radial-gradient(circle at 85% 20%, rgba(255,255,255,.2), transparent 20%),
         linear-gradient(135deg, #0f766e, #0284c7);
       box-shadow: var(--shadow);
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      right: -70px;
-      bottom: -90px;
-      width: 280px;
-      height: 280px;
-      border: 45px solid rgba(255, 255, 255, 0.08);
-      border-radius: 50%;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
+      overflow: hidden;
     }
 
     .eyebrow {
       display: inline-block;
-      margin-bottom: 13px;
       padding: 7px 13px;
-      border: 1px solid rgba(255, 255, 255, 0.26);
+      margin-bottom: 12px;
+      border: 1px solid rgba(255,255,255,.25);
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.13);
+      background: rgba(255,255,255,.12);
       font-size: 13px;
       font-weight: 800;
-      letter-spacing: 0.4px;
     }
 
     .hero h2 {
-      max-width: 720px;
       margin: 0;
-      color: #ffffff;
       font-family: "Baloo 2", cursive;
-      font-size: clamp(37px, 6vw, 64px);
+      font-size: clamp(36px, 5vw, 60px);
       line-height: 1.05;
     }
 
     .hero p {
-      max-width: 690px;
-      margin: 18px 0 26px;
+      max-width: 650px;
       color: #e6fffb;
-      font-size: 18px;
+      font-size: 17px;
+    }
+
+    .hero-symbol {
+      text-align: center;
+      font-size: clamp(90px, 12vw, 160px);
     }
 
     .button-group {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
+      margin-top: 20px;
     }
 
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 46px;
-      padding: 11px 20px;
+      padding: 12px 18px;
       border: 0;
       border-radius: 12px;
       font-weight: 800;
       text-decoration: none;
-      cursor: pointer;
-      transition: 0.25s ease;
+      transition: .2s;
     }
 
     .button:hover {
@@ -254,40 +220,28 @@
     }
 
     .button-primary {
-      background: #ffffff;
+      background: white;
       color: var(--primary-dark);
     }
 
     .button-secondary {
-      border: 1px solid rgba(255, 255, 255, 0.42);
-      background: rgba(255, 255, 255, 0.13);
-      color: #ffffff;
-    }
-
-    .hero-symbol {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      place-items: center;
-      font-size: clamp(110px, 15vw, 190px);
-      filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.16));
+      border: 1px solid rgba(255,255,255,.4);
+      background: rgba(255,255,255,.13);
+      color: white;
     }
 
     .stats {
-      position: relative;
-      z-index: 2;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 15px;
-      margin-top: -44px;
-      padding: 0 34px;
+      margin: 18px 0 0;
     }
 
     .stat {
-      padding: 20px;
+      padding: 18px;
       border: 1px solid var(--border);
-      border-radius: 18px;
-      background: var(--surface);
+      border-radius: 17px;
+      background: white;
       text-align: center;
       box-shadow: var(--shadow);
     }
@@ -296,22 +250,21 @@
       display: block;
       color: var(--primary);
       font-family: "Baloo 2", cursive;
-      font-size: 30px;
+      font-size: 29px;
     }
 
     .section-heading {
-      margin-bottom: 24px;
+      margin-bottom: 22px;
     }
 
     .section-heading h2 {
-      margin: 0 0 7px;
+      margin: 0 0 6px;
       color: var(--primary-dark);
       font-family: "Baloo 2", cursive;
-      font-size: clamp(29px, 4vw, 39px);
+      font-size: clamp(28px, 4vw, 38px);
     }
 
     .section-heading p {
-      max-width: 760px;
       margin: 0;
       color: var(--muted);
     }
@@ -319,34 +272,33 @@
     .learning-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 17px;
     }
 
     .learning-card,
     .structure-card {
-      padding: 25px;
+      padding: 22px;
       border: 1px solid var(--border);
-      border-radius: 20px;
-      background: var(--surface);
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
-      transition: 0.25s ease;
+      border-radius: 18px;
+      background: white;
+      box-shadow: 0 8px 24px rgba(15,23,42,.04);
+      transition: .2s;
     }
 
-    .learning-card:hover,
-    .term-card:hover {
-      transform: translateY(-5px);
+    .learning-card:hover {
+      transform: translateY(-4px);
       box-shadow: var(--shadow);
     }
 
     .card-icon {
       display: grid;
       place-items: center;
-      width: 52px;
-      height: 52px;
-      margin-bottom: 15px;
-      border-radius: 15px;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 12px;
+      border-radius: 14px;
       background: var(--primary-light);
-      font-size: 25px;
+      font-size: 24px;
     }
 
     .learning-card h3,
@@ -363,239 +315,251 @@
     .structure-wrapper {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 22px;
+      gap: 18px;
     }
 
     .word-example {
-      margin: 20px 0;
-      padding: 24px 15px;
-      border-radius: 16px;
+      margin: 18px 0;
+      padding: 20px 10px;
+      border-radius: 15px;
       background: #f0fdfa;
       text-align: center;
-      font-size: clamp(22px, 4vw, 35px);
+      font-size: clamp(22px, 4vw, 34px);
       font-weight: 800;
-      letter-spacing: 1px;
     }
 
-    .prefix {
-      color: #7c3aed;
-    }
-
-    .root {
-      color: #0284c7;
-    }
-
-    .suffix {
-      color: #dc2626;
-    }
+    .prefix { color: #7c3aed; }
+    .root { color: #0284c7; }
+    .suffix { color: #dc2626; }
 
     .legend {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 10px;
+      gap: 8px;
+      margin-bottom: 15px;
     }
 
-    .legend span,
-    .tag {
+    .legend span {
       padding: 5px 10px;
       border-radius: 999px;
       font-size: 12px;
       font-weight: 800;
     }
 
-    .legend .prefix {
-      background: #ede9fe;
-    }
-
-    .legend .root {
-      background: #e0f2fe;
-    }
-
-    .legend .suffix {
-      background: #fee2e2;
-    }
+    .legend .prefix { background: #ede9fe; }
+    .legend .root { background: #e0f2fe; }
+    .legend .suffix { background: #fee2e2; }
 
     .rule-list {
       display: grid;
-      gap: 12px;
-      margin-top: 18px;
+      gap: 10px;
+      margin-top: 15px;
     }
 
     .rule {
       display: flex;
-      gap: 12px;
-      padding: 12px;
-      border-radius: 13px;
+      gap: 10px;
+      padding: 11px;
+      border-radius: 12px;
       background: #f8fafc;
     }
 
     .rule-number {
       display: grid;
-      flex: 0 0 30px;
+      flex: 0 0 29px;
       place-items: center;
-      height: 30px;
+      height: 29px;
       border-radius: 9px;
       background: var(--primary);
-      color: #ffffff;
+      color: white;
       font-weight: 800;
     }
 
     .dictionary-panel {
-      padding: 26px;
+      padding: 22px;
       border: 1px solid var(--border);
       border-radius: 22px;
-      background: var(--surface);
+      background: white;
       box-shadow: var(--shadow);
     }
 
     .search-row {
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 12px;
+      gap: 10px;
     }
 
     .search-input {
       width: 100%;
-      min-height: 50px;
-      padding: 12px 17px;
+      min-height: 48px;
+      padding: 11px 14px;
       border: 2px solid var(--border);
-      border-radius: 13px;
+      border-radius: 12px;
       outline: none;
-      color: var(--text);
-      background: #ffffff;
-      transition: 0.2s;
     }
 
     .search-input:focus {
       border-color: var(--primary);
-      box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.1);
     }
 
     .search-button {
-      padding: 0 24px;
-      border: 0;
-      border-radius: 13px;
+      padding: 0 22px;
+      border: none;
+      border-radius: 12px;
       background: var(--primary);
-      color: #ffffff;
+      color: white;
       font-weight: 800;
-      cursor: pointer;
     }
 
     .filters {
       display: flex;
       flex-wrap: wrap;
-      gap: 9px;
-      margin: 18px 0 25px;
+      gap: 8px;
+      margin: 17px 0 23px;
     }
 
     .filter-button {
-      padding: 8px 13px;
+      padding: 8px 12px;
       border: 1px solid var(--border);
       border-radius: 999px;
-      background: #ffffff;
+      background: white;
       color: var(--text);
-      font-weight: 700;
-      cursor: pointer;
+      font-size: 13px;
+      font-weight: 800;
     }
 
-    .filter-button:hover,
-    .filter-button.active {
+    .filter-button.active,
+    .filter-button:hover {
       border-color: var(--primary);
       background: var(--primary);
-      color: #ffffff;
+      color: white;
     }
 
     .term-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 17px;
+      gap: 15px;
     }
 
     .term-card {
       display: flex;
       flex-direction: column;
-      min-height: 230px;
-      padding: 20px;
+      min-height: 220px;
+      padding: 17px;
       border: 1px solid var(--border);
       border-top: 4px solid var(--primary);
-      border-radius: 17px;
-      background: #ffffff;
-      transition: 0.25s ease;
+      border-radius: 16px;
+      background: white;
+      transition: .2s;
     }
 
-    .term-card.hidden {
-      display: none;
+    .term-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
     }
 
     .term-card h3 {
-      margin: 11px 0 2px;
+      margin: 10px 0 0;
       color: var(--primary-dark);
-      font-size: 21px;
-    }
-
-    .pronunciation {
-      margin-bottom: 10px;
-      color: var(--secondary);
-      font-size: 13px;
-      font-weight: 800;
+      font-size: 20px;
     }
 
     .term-card p {
-      margin: 0;
+      margin: 8px 0;
       color: var(--muted);
-    }
-
-    .term-origin {
-      margin-top: auto;
-      padding-top: 15px;
-      color: #475569;
-      font-size: 13px;
     }
 
     .tag {
       align-self: flex-start;
-      background: var(--secondary-light);
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: #e0f2fe;
       color: #0369a1;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .pronunciation {
+      color: var(--secondary);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .term-origin {
+      margin-top: auto;
+      padding-top: 10px;
+      color: #475569;
+      font-size: 12px;
     }
 
     .no-result {
       display: none;
-      padding: 28px;
-      border-radius: 15px;
+      padding: 22px;
+      border-radius: 13px;
       background: #fff7ed;
       color: #9a3412;
       text-align: center;
-      font-weight: 700;
     }
 
     .quiz {
       display: grid;
-      grid-template-columns: 0.65fr 1.35fr;
-      gap: 23px;
-      padding: 28px;
-      border-radius: 24px;
-      color: #ffffff;
+      grid-template-columns: .7fr 1.3fr;
+      gap: 20px;
+      padding: 23px;
+      border-radius: 22px;
       background: linear-gradient(135deg, #075985, #0f766e);
+      color: white;
       box-shadow: var(--shadow);
     }
 
     .quiz-info h2 {
-      margin: 0 0 8px;
-      color: #ffffff;
+      margin: 0;
+      color: white;
       font-family: "Baloo 2", cursive;
-      font-size: 35px;
+      font-size: 34px;
     }
 
     .quiz-info p {
       color: #dffafa;
     }
 
+    .quiz-controls {
+      display: grid;
+      gap: 9px;
+      margin-top: 17px;
+    }
+
+    .quiz-select,
+    .quiz-count {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 11px;
+      background: rgba(255,255,255,.13);
+      color: white;
+      outline: none;
+    }
+
+    .quiz-select option,
+    .quiz-count option {
+      color: #16333b;
+    }
+
+    .quiz-start {
+      padding: 12px;
+      border: none;
+      border-radius: 11px;
+      background: white;
+      color: var(--primary-dark);
+      font-weight: 800;
+    }
+
     .score-box {
-      margin-top: 22px;
-      padding: 15px;
-      border-radius: 15px;
-      background: rgba(255, 255, 255, 0.12);
+      margin-top: 20px;
+      padding: 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.12);
     }
 
     .progress {
@@ -603,43 +567,52 @@
       margin-top: 10px;
       overflow: hidden;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255,255,255,.2);
     }
 
     .progress-bar {
       width: 0;
       height: 100%;
-      border-radius: inherit;
       background: #fbbf24;
-      transition: width 0.3s;
+      transition: width .3s;
     }
 
     .quiz-card {
-      padding: 25px;
-      border-radius: 19px;
-      background: #ffffff;
+      padding: 22px;
+      border-radius: 17px;
+      background: white;
       color: var(--text);
     }
 
+    .quiz-category {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: #e0f2fe;
+      color: #0369a1;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
     .quiz-card h3 {
-      margin-top: 0;
+      margin-top: 5px;
     }
 
     .options {
       display: grid;
-      gap: 10px;
+      gap: 9px;
     }
 
     .option {
-      padding: 13px;
+      padding: 12px;
       border: 2px solid var(--border);
-      border-radius: 12px;
-      background: #ffffff;
+      border-radius: 11px;
+      background: white;
       color: var(--text);
       text-align: left;
       font-weight: 700;
-      cursor: pointer;
-      transition: 0.2s;
+      transition: .2s;
     }
 
     .option:hover:not(:disabled) {
@@ -660,59 +633,53 @@
     }
 
     .feedback {
-      min-height: 28px;
-      margin: 15px 0 0;
+      min-height: 26px;
+      margin: 14px 0 0;
       font-weight: 800;
     }
 
     .next-button {
       display: none;
       margin-top: 10px;
-      padding: 11px 18px;
-      border: 0;
-      border-radius: 11px;
+      padding: 11px 16px;
+      border: none;
+      border-radius: 10px;
       background: var(--primary);
-      color: #ffffff;
+      color: white;
       font-weight: 800;
-      cursor: pointer;
+    }
+
+    .quiz-result {
+      display: none;
+      margin-top: 15px;
+      padding: 17px;
+      border: 1px solid #99f6e4;
+      border-radius: 13px;
+      background: #f0fdfa;
+    }
+
+    .quiz-result h3 {
+      margin-top: 0;
+      color: var(--primary-dark);
     }
 
     .contact {
-      padding: 34px;
-      border-radius: 23px;
+      padding: 30px;
+      border-radius: 22px;
       background: #ecfdf5;
       text-align: center;
     }
 
     .contact h2 {
-      margin-top: 0;
       color: var(--primary-dark);
       font-family: "Baloo 2", cursive;
-      font-size: 34px;
-    }
-
-    .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .contact-links a {
-      padding: 10px 17px;
-      border-radius: 10px;
-      background: var(--surface);
-      color: var(--primary-dark);
-      font-weight: 800;
-      text-decoration: none;
     }
 
     footer {
-      padding: 15px 0 5px;
+      padding: 15px 0;
       color: var(--muted);
       text-align: center;
-      font-size: 14px;
+      font-size: 13px;
     }
 
     @media (max-width: 1100px) {
@@ -743,7 +710,6 @@
       .sidebar {
         width: min(82vw, 290px);
         transform: translateX(-110%);
-        transition: transform 0.3s ease;
       }
 
       .sidebar.open {
@@ -752,112 +718,93 @@
 
       .main {
         margin-left: 0;
-        padding: 75px 16px 25px;
+        padding: 75px 15px 25px;
       }
 
       .stats {
         grid-template-columns: 1fr;
-        margin-top: 17px;
-        padding: 0;
       }
 
       .hero {
         min-height: auto;
-        padding: 40px 24px;
-        border-radius: 22px;
+        padding: 32px 22px;
       }
     }
 
     @media (max-width: 570px) {
       .learning-grid,
-      .term-grid {
-        grid-template-columns: 1fr;
-      }
-
+      .term-grid,
       .search-row {
         grid-template-columns: 1fr;
       }
 
-      .search-button {
-        min-height: 47px;
-      }
-
       .dictionary-panel,
       .quiz {
-        padding: 18px;
+        padding: 15px;
+      }
+
+      .hero h2 {
+        font-size: 38px;
       }
     }
   </style>
 </head>
 
 <body>
-  <button
-    class="menu-button"
-    id="menuButton"
-    type="button"
-    aria-label="Menüyü aç veya kapat"
-    aria-expanded="false"
-  >
-    ☰
-  </button>
+  <button class="menu-button" id="menuButton" aria-label="Menüyü aç veya kapat" aria-expanded="false">☰</button>
 
   <aside class="sidebar" id="sidebar">
     <div class="brand">
-      <div class="brand-logo" aria-hidden="true">⚕</div>
+      <div class="brand-logo">⚕</div>
       <h1>Zübeyde Hanım SMHYO</h1>
       <p>Tıbbi Terminoloji Eğitim Platformu</p>
     </div>
 
     <nav aria-label="Ana menü">
-      <a href="#anasayfa" class="active"><span>🏠</span>Ana Sayfa</a>
-      <a href="#temel-konular"><span>📚</span>Temel Konular</a>
-      <a href="#kelime-yapisi"><span>🧩</span>Kelime Yapısı</a>
-      <a href="#terimler"><span>🔎</span>Terim Sözlüğü</a>
-      <a href="#quiz"><span>✅</span>Bilgi Testi</a>
-      <a href="#iletisim"><span>✉️</span>İletişim</a>
+      <a class="active" href="#anasayfa">🏠 Ana Sayfa</a>
+      <a href="#temel-konular">📚 Temel Konular</a>
+      <a href="#kelime-yapisi">🧩 Kelime Yapısı</a>
+      <a href="#terimler">🔎 Terim Sözlüğü</a>
+      <a href="#quiz">✅ Bilgi Testi</a>
+      <a href="#iletisim">✉️ İletişim</a>
     </nav>
 
     <div class="sidebar-note">
-      <strong>Öğrenme yaklaşımı</strong>
-      Terimleri yalnızca ezberlemeyin; kök, ön ek ve son ek bağlantılarıyla anlamlandırın.
+      <strong>Öğrenme önerisi</strong>
+      Terimleri yalnızca ezberlemeyin. Kök, ön ek ve son eklerini öğrenerek
+      anlamlarını daha kolay hatırlayın.
     </div>
   </aside>
 
   <main class="main">
     <section id="anasayfa">
       <div class="hero">
-        <div class="hero-content">
+        <div>
           <span class="eyebrow">Sağlık eğitiminde kalıcı öğrenme</span>
           <h2>Tıbbi terimlerin dilini keşfet</h2>
           <p>
-            Tıbbi kelimeleri köklerine ayırın, vücut sistemlerine göre
-            inceleyin ve kısa testlerle bilginizi pekiştirin.
+            Tıbbi kelimeleri köklerine ayırın, vücut sistemlerine göre inceleyin
+            ve bölüm seçmeli testlerle bilginizi pekiştirin.
           </p>
-
           <div class="button-group">
-            <a href="#terimler" class="button button-primary">
-              Terimleri İncele
-            </a>
-            <a href="#quiz" class="button button-secondary">
-              Bilgi Testine Başla
-            </a>
+            <a class="button button-primary" href="#terimler">Terimleri İncele</a>
+            <a class="button button-secondary" href="#quiz">Bilgi Testine Başla</a>
           </div>
         </div>
-
         <div class="hero-symbol" aria-hidden="true">🩺</div>
       </div>
 
       <div class="stats">
         <div class="stat">
-          <strong id="termCount">9</strong>
-          <span>Örnek terim</span>
+          <strong id="termCount">0</strong>
+          <span>Tıbbi terim</span>
         </div>
         <div class="stat">
-          <strong>6</strong>
-          <span>Vücut sistemi</span>
+          <strong>9</strong>
+          <span>Konu bölümü</span>
         </div>
         <div class="stat">
-          <strong>3</strong>
+          <strong id="quizCountDisplay">45</strong>
           <span>Quiz sorusu</span>
         </div>
       </div>
@@ -866,65 +813,39 @@
     <section id="temel-konular">
       <div class="section-heading">
         <h2>Temel Öğrenme Alanları</h2>
-        <p>
-          Tıbbi terminolojiyi sistemli öğrenmek için önce kelime bileşenlerini,
-          ardından organ ve sistem bağlantılarını inceleyin.
-        </p>
+        <p>Tıbbi terminolojiyi kelime bileşenleri, organlar ve vücut sistemleri üzerinden öğrenin.</p>
       </div>
 
       <div class="learning-grid">
         <article class="learning-card">
           <div class="card-icon">🔤</div>
           <h3>Ön Ekler</h3>
-          <p>
-            Kelimenin başında bulunur; sayı, konum, hız veya durum hakkında
-            bilgi verir. Örnek: <strong>hiper-</strong>, <strong>bradi-</strong>.
-          </p>
+          <p>Kelimenin başına gelir. Konum, miktar veya durum bildirir. Örnek: hiper-, hipo-, bradi-.</p>
         </article>
-
         <article class="learning-card">
           <div class="card-icon">🌱</div>
           <h3>Kökler</h3>
-          <p>
-            Terimin ana anlamını taşır. Genellikle organı ya da dokuyu belirtir.
-            Örnek: <strong>kard</strong>, <strong>hepat</strong>.
-          </p>
+          <p>Kelimenin ana anlamını taşır. Örnek: kardiy (kalp), gastr (mide), nefr (böbrek).</p>
         </article>
-
         <article class="learning-card">
           <div class="card-icon">🔚</div>
           <h3>Son Ekler</h3>
-          <p>
-            Hastalık, işlem veya uzmanlık alanını belirtir. Örnek:
-            <strong>-it</strong>, <strong>-ektomi</strong>, <strong>-loji</strong>.
-          </p>
+          <p>Hastalık, işlem veya uzmanlık bildirir. Örnek: -it, -ektomi, -loji, -skopi.</p>
         </article>
-
         <article class="learning-card">
           <div class="card-icon">🫀</div>
           <h3>Vücut Sistemleri</h3>
-          <p>
-            Kardiyovasküler, solunum, sindirim ve sinir sistemi terimlerini
-            organ ilişkileriyle öğrenin.
-          </p>
+          <p>Kalp, solunum, sindirim, sinir ve diğer sistemlerin terminolojisini öğrenin.</p>
         </article>
-
         <article class="learning-card">
           <div class="card-icon">🧪</div>
           <h3>Tanısal İşlemler</h3>
-          <p>
-            Görüntüleme, inceleme ve ölçüm bildiren terimleri ayırt edin:
-            <strong>-grafi</strong>, <strong>-skopi</strong>, <strong>-metri</strong>.
-          </p>
+          <p>Biyopsi, tomografi ve endoskopi gibi tanılama ve inceleme terimlerini tanıyın.</p>
         </article>
-
         <article class="learning-card">
           <div class="card-icon">🏥</div>
           <h3>Klinik Kullanım</h3>
-          <p>
-            Terimlerin hasta dosyası, rapor, tanı ve tedavi süreçlerinde nasıl
-            kullanıldığını örneklerle inceleyin.
-          </p>
+          <p>Terimlerin sağlık hizmetlerinde ve tıbbi kayıtlarında neyi ifade ettiğini kavrayın.</p>
         </article>
       </div>
     </section>
@@ -932,54 +853,32 @@
     <section id="kelime-yapisi">
       <div class="section-heading">
         <h2>Bir Tıbbi Terim Nasıl Oluşur?</h2>
-        <p>
-          Terimleri bileşenlerine ayırmak, daha önce görmediğiniz kelimelerin
-          anlamını tahmin etmenizi kolaylaştırır.
-        </p>
+        <p>Terimleri parçalarına ayırmak, daha önce görmediğiniz kelimeleri anlamlandırmayı kolaylaştırır.</p>
       </div>
 
       <div class="structure-wrapper">
         <article class="structure-card">
           <h3>Örnek: Perikardit</h3>
-
-          <div class="word-example" aria-label="Peri kard it">
+          <div class="word-example">
             <span class="prefix">peri</span> +
             <span class="root">kard</span> +
             <span class="suffix">it</span>
           </div>
-
           <div class="legend">
             <span class="prefix">peri: çevresinde</span>
             <span class="root">kard: kalp</span>
             <span class="suffix">it: iltihap</span>
           </div>
-
-          <p>
-            <strong>Perikardit</strong>, kalbi çevreleyen zarın iltihaplanmasını
-            ifade eder.
-          </p>
+          <p>Perikardit, kalbi çevreleyen zarın iltihaplanmasını ifade eder.</p>
         </article>
 
         <article class="structure-card">
           <h3>Terimi Çözümleme Adımları</h3>
-
           <div class="rule-list">
-            <div class="rule">
-              <span class="rule-number">1</span>
-              <span>Önce kelimenin sonundaki <strong>son eki</strong> bulun.</span>
-            </div>
-            <div class="rule">
-              <span class="rule-number">2</span>
-              <span>Organı veya dokuyu belirten <strong>kökü</strong> ayırın.</span>
-            </div>
-            <div class="rule">
-              <span class="rule-number">3</span>
-              <span>Varsa konum veya durumu anlatan <strong>ön eki</strong> inceleyin.</span>
-            </div>
-            <div class="rule">
-              <span class="rule-number">4</span>
-              <span>Bileşenleri birleştirerek terimin klinik anlamını kurun.</span>
-            </div>
+            <div class="rule"><span class="rule-number">1</span><span>Kelimenin sonundaki son eki bulun.</span></div>
+            <div class="rule"><span class="rule-number">2</span><span>Organı veya dokuyu belirten kökü ayırın.</span></div>
+            <div class="rule"><span class="rule-number">3</span><span>Varsa ön eki inceleyin.</span></div>
+            <div class="rule"><span class="rule-number">4</span><span>Bileşenleri birleştirerek terimin anlamını bulun.</span></div>
           </div>
         </article>
       </div>
@@ -988,203 +887,81 @@
     <section id="terimler">
       <div class="section-heading">
         <h2>Tıbbi Terim Sözlüğü</h2>
-        <p>
-          Terim, anlam, kök veya sistem adına göre arama yapabilirsiniz.
-        </p>
+        <p>Terim, anlam, kelime kökü veya kategori adına göre arama yapabilirsiniz.</p>
       </div>
 
       <div class="dictionary-panel">
         <div class="search-row">
-          <label for="termSearch" style="position:absolute; left:-9999px;">
-            Terim ara
-          </label>
           <input
             id="termSearch"
             class="search-input"
             type="search"
             placeholder="Örnek: kardiyoloji, iltihap, solunum..."
+            aria-label="Tıbbi terim ara"
             autocomplete="off"
           >
-          <button class="search-button" id="searchButton" type="button">
-            Ara
-          </button>
+          <button class="search-button" id="searchButton" type="button">Ara</button>
         </div>
 
-        <div class="filters" aria-label="Terim kategorileri">
-          <button class="filter-button active" type="button" data-filter="tümü">
-            Tümü
-          </button>
-          <button class="filter-button" type="button" data-filter="kalp">
-            Kalp ve Damar
-          </button>
-          <button class="filter-button" type="button" data-filter="solunum">
-            Solunum
-          </button>
-          <button class="filter-button" type="button" data-filter="sindirim">
-            Sindirim
-          </button>
-          <button class="filter-button" type="button" data-filter="sinir">
-            Sinir Sistemi
-          </button>
-          <button class="filter-button" type="button" data-filter="kas">
-            Kas ve İskelet
-          </button>
+        <div class="filters" id="termFilters">
+          <button class="filter-button active" data-filter="tümü" type="button">Tümü</button>
+          <button class="filter-button" data-filter="kalp" type="button">❤️ Kalp ve Damar</button>
+          <button class="filter-button" data-filter="solunum" type="button">🫁 Solunum</button>
+          <button class="filter-button" data-filter="sindirim" type="button">🧪 Sindirim</button>
+          <button class="filter-button" data-filter="sinir" type="button">🧠 Sinir Sistemi</button>
+          <button class="filter-button" data-filter="kas" type="button">🦴 Kas ve İskelet</button>
+          <button class="filter-button" data-filter="üriner" type="button">💧 Üriner Sistem</button>
+          <button class="filter-button" data-filter="endokrin" type="button">🧬 Endokrin</button>
+          <button class="filter-button" data-filter="üreme" type="button">⚕️ Üreme Sistemi</button>
+          <button class="filter-button" data-filter="genel" type="button">📖 Genel Terminoloji</button>
         </div>
 
-        <div class="term-grid" id="termGrid">
-          <article
-            class="term-card"
-            data-category="kalp"
-            data-search="kardiyoloji kalp bilimi kardio loji"
-          >
-            <span class="tag">Kalp ve Damar</span>
-            <h3>Kardiyoloji</h3>
-            <span class="pronunciation">kar-di-yo-lo-ji</span>
-            <p>Kalp ve dolaşım sistemi hastalıklarını inceleyen tıp dalıdır.</p>
-            <div class="term-origin">
-              <strong>Kök:</strong> kardiy/o (kalp) + loji (bilim)
-            </div>
-          </article>
-
-          <article
-            class="term-card"
-            data-category="kalp"
-            data-search="taşikardi hızlı kalp atımı nabız taki kardi"
-          >
-            <span class="tag">Kalp ve Damar</span>
-            <h3>Taşikardi</h3>
-            <span class="pronunciation">ta-şi-kar-di</span>
-            <p>Kalp atım hızının normalden yüksek olması durumudur.</p>
-            <div class="term-origin">
-              <strong>Yapı:</strong> taşikardi = hızlı + kalp
-            </div>
-          </article>
-
-          <article
-            class="term-card"
-            data-category="solunum"
-            data-search="dispne nefes darlığı solunum güçlüğü"
-          >
-            <span class="tag">Solunum</span>
-            <h3>Dispne</h3>
-            <span class="pronunciation">dis-pne</span>
-            <p>Nefes almada güçlük veya nefes darlığı hissidir.</p>
-            <div class="term-origin">
-              <strong>Kök:</strong> pne (solunum, nefes)
-            </div>
-          </article>
-
-          <article
-            class="term-card"
-            data-category="solunum"
-            data-search="bradipne yavaş solunum nefes bradi pne"
-          >
-            <span class="tag">Solunum</span>
-            <h3>Bradipne</h3>
-            <span class="pronunciation">bra-di-pne</span>
-            <p>Solunum sayısının normal değerlerin altında olmasıdır.</p>
-            <div class="term-origin">
-              <strong>Yapı:</strong> bradi (yavaş) + pne (solunum)
-            </div>
-          </article>
-
-          <article
-            class="term-card"
-            data-category="sindirim"
-            data-search="gastrit mide iltihap gastro it"
-          >
-            <span class="tag">Sindirim</span>
-            <h3>Gastrit</h3>
-            <span class="pronunciation">gas-trit</span>
-            <p>Mide iç yüzeyini örten mukozanın iltihaplanmasıdır.</p>
-            <div class="term-origin">
-              <strong>Yapı:</strong> gastr (mide) + it (iltihap)
-            </div>
-          </article>
-
-          <article
-            class="term-card"
-            data-category="sindirim"
-            data-search="hepatomegali karaciğer büyümesi hepat megali"
-          >
-            <span class="tag">Sindirim</span>
-            <h3>Hepatomegali</h3>
-            <span class="pronunciation">he-pa-to-me-ga-li</span>
-            <p>Karaciğerin normal boyutlarından daha büyük olmasıdır.</p>
-            <div class="term-origin">
-              <strong>Yapı:</strong> hepat (karaciğer) + megali (büyüme)
-            </div>
-          </article>
-
-          <article
-            class="term-card"
-            data-category="sinir"
-            data-search="nöroloji sinir sistemi beyin bilim neuro loji"
-          >
-            <span class="tag">Sinir Sistemi</span>
-            <h3>Nöroloji</h3>
-            <span class="pronunciation">nö-ro-lo-ji</span>
-            <p>Beyin, omurilik ve çevresel sinir sistemini inceleyen tıp dalıdır.</p>
-            <div class="term-origin">
-              <strong>Yapı:</strong> nöro (sinir) + loji (bilim)
-            </div>
-          </article>
-
-          <article
-            class="term-card"
-            data-category="sinir"
-            data-search="nevralji sinir ağrısı nöro alji"
-          >
-            <span class="tag">Sinir Sistemi</span>
-            <h3>Nevralji</h3>
-            <span class="pronunciation">nev-ral-ji</span>
-            <p>Bir sinirin dağılım alanında hissedilen şiddetli ağrıdır.</p>
-            <div class="term-origin">
-              <strong>Son ek:</strong> alji (ağrı)
-            </div>
-          </article>
-
-          <article
-            class="term-card"
-            data-category="kas"
-            data-search="artralji eklem ağrısı artro alji kas iskelet"
-          >
-            <span class="tag">Kas ve İskelet</span>
-            <h3>Artralji</h3>
-            <span class="pronunciation">art-ral-ji</span>
-            <p>Bir veya birden fazla eklemde hissedilen ağrıdır.</p>
-            <div class="term-origin">
-              <strong>Yapı:</strong> artr (eklem) + alji (ağrı)
-            </div>
-          </article>
-        </div>
-
-        <div class="no-result" id="noResult">
-          Aramanızla eşleşen bir terim bulunamadı.
-        </div>
+        <div class="term-grid" id="termGrid"></div>
+        <div class="no-result" id="noResult">Aramanızla eşleşen bir terim bulunamadı.</div>
       </div>
     </section>
 
     <section id="quiz">
+      <div class="section-heading">
+        <h2>Bilgi Testi</h2>
+        <p>İstediğiniz bölümü seçin, soru sayısını belirleyin ve testinizi başlatın.</p>
+      </div>
+
       <div class="quiz">
         <div class="quiz-info">
           <h2>Bilgini Test Et</h2>
-          <p>
-            Kısa sorularla terim bileşenlerini ve anlamlarını ne kadar
-            öğrendiğinizi ölçün.
-          </p>
+          <p>Her cevap sonrasında doğru yanıtı ve açıklamasını görebilirsiniz.</p>
+
+          <div class="quiz-controls">
+            <label for="quizCategory">Quiz Bölümü</label>
+            <select class="quiz-select" id="quizCategory">
+              <option value="tümü">Tüm Bölümler</option>
+              <option value="kalp">❤️ Kalp ve Damar</option>
+              <option value="solunum">🫁 Solunum</option>
+              <option value="sindirim">🧪 Sindirim</option>
+              <option value="sinir">🧠 Sinir Sistemi</option>
+              <option value="kas">🦴 Kas ve İskelet</option>
+              <option value="üriner">💧 Üriner Sistem</option>
+              <option value="endokrin">🧬 Endokrin</option>
+              <option value="üreme">⚕️ Üreme Sistemi</option>
+              <option value="genel">📖 Genel Terminoloji</option>
+            </select>
+
+            <label for="quizCount">Soru Sayısı</label>
+            <select class="quiz-count" id="quizCount">
+              <option value="5">5 Soru</option>
+              <option value="10" selected>10 Soru</option>
+              <option value="15">15 Soru</option>
+              <option value="20">20 Soru</option>
+              <option value="all">Tüm Uygun Sorular</option>
+            </select>
+
+            <button class="quiz-start" id="startQuizButton" type="button">🚀 Quizi Başlat</button>
+          </div>
 
           <div class="score-box">
-            <div>
-              Soru:
-              <strong>
-                <span id="questionNumber">1</span>/<span id="questionTotal">3</span>
-              </strong>
-            </div>
-            <div>
-              Puan:
-              <strong><span id="score">0</span></strong>
-            </div>
+            <div>Soru: <strong><span id="questionNumber">0</span>/<span id="questionTotal">0</span></strong></div>
+            <div>Doğru cevap: <strong id="score">0</strong></div>
             <div class="progress" aria-label="Quiz ilerlemesi">
               <div class="progress-bar" id="progressBar"></div>
             </div>
@@ -1192,245 +969,1041 @@
         </div>
 
         <div class="quiz-card">
-          <h3 id="questionText"></h3>
+          <span class="quiz-category" id="quizCategoryLabel">Quiz seçilmedi</span>
+          <h3 id="questionText">Bir bölüm seçip “Quizi Başlat” butonuna basın.</h3>
           <div class="options" id="options"></div>
           <p class="feedback" id="feedback" aria-live="polite"></p>
-          <button class="next-button" id="nextButton" type="button">
-            Sonraki Soru
-          </button>
+          <div class="quiz-result" id="quizResult"></div>
+          <button class="next-button" id="nextButton" type="button">Sonraki Soru</button>
         </div>
       </div>
     </section>
 
     <section id="iletisim" class="contact">
       <h2>İletişim ve Geri Bildirim</h2>
-      <p>
-        Eğitim içeriğiyle ilgili öneri ve düzeltmeleriniz için iletişime
-        geçebilirsiniz.
-      </p>
-
-      <div class="contact-links">
-        <a href="mailto:omerali@example.com">✉️ E-posta</a>
-        <a href="#" aria-label="Ders kaynaklarına git">📁 Ders Kaynakları</a>
-        <a href="#" aria-label="Okul sayfasına git">🏫 Okul Sayfası</a>
-      </div>
+      <p>Eğitim içeriğiyle ilgili öneri ve düzeltmeleriniz için geri bildirimde bulunabilirsiniz.</p>
+      <p>Bu alanı okul e-posta adresiniz ve ders kaynaklarınızla güncelleyebilirsiniz.</p>
     </section>
 
     <footer>
-      © <span id="year"></span> Zübeyde Hanım Sağlık Hizmetleri Meslek
-      Yüksekokulu - Tıbbi Terminoloji
+      © <span id="year"></span> Tıbbi Terminoloji Eğitim Platformu
     </footer>
   </main>
 
   <script>
+    const categories = {
+      kalp: "Kalp ve Damar",
+      solunum: "Solunum",
+      sindirim: "Sindirim",
+      sinir: "Sinir Sistemi",
+      kas: "Kas ve İskelet",
+      üriner: "Üriner Sistem",
+      endokrin: "Endokrin",
+      üreme: "Üreme Sistemi",
+      genel: "Genel Terminoloji"
+    };
+
+    const terms = [
+      {
+        category: "kalp",
+        name: "Kardiyoloji",
+        pronunciation: "kar-di-yo-lo-ji",
+        description: "Kalp ve dolaşım sistemi hastalıklarını inceleyen tıp dalıdır.",
+        structure: "kardiy/o: kalp + -loji: bilim dalı"
+      },
+      {
+        category: "kalp",
+        name: "Taşikardi",
+        pronunciation: "ta-şi-kar-di",
+        description: "Kalp atım hızının normalden yüksek olmasıdır.",
+        structure: "taşi: hızlı + kardiy: kalp"
+      },
+      {
+        category: "kalp",
+        name: "Bradikardi",
+        pronunciation: "bra-di-kar-di",
+        description: "Kalp atım hızının normalden düşük olmasıdır.",
+        structure: "bradi: yavaş + kardiy: kalp"
+      },
+      {
+        category: "kalp",
+        name: "Hipertansiyon",
+        pronunciation: "hi-per-tan-si-yon",
+        description: "Arteriyel kan basıncının sürekli yüksek olması durumudur.",
+        structure: "hiper: yüksek/aşırı + tansiyon"
+      },
+      {
+        category: "kalp",
+        name: "Hipotansiyon",
+        pronunciation: "hi-po-tan-si-yon",
+        description: "Arteriyel kan basıncının normalden düşük olmasıdır.",
+        structure: "hipo: düşük/az + tansiyon"
+      },
+      {
+        category: "kalp",
+        name: "Aritmi",
+        pronunciation: "a-rit-mi",
+        description: "Kalp ritminin normal düzeninden sapmasıdır.",
+        structure: "a-: yokluk/bozukluk + ritim"
+      },
+
+      {
+        category: "solunum",
+        name: "Dispne",
+        pronunciation: "dis-pne",
+        description: "Nefes almada güçlük veya nefes darlığı hissidir.",
+        structure: "dis: güçlük + pne: solunum"
+      },
+      {
+        category: "solunum",
+        name: "Bradipne",
+        pronunciation: "bra-di-pne",
+        description: "Solunum sayısının normalin altında olmasıdır.",
+        structure: "bradi: yavaş + pne: solunum"
+      },
+      {
+        category: "solunum",
+        name: "Taşipne",
+        pronunciation: "ta-şi-pne",
+        description: "Solunum sayısının normalden yüksek olmasıdır.",
+        structure: "taşi: hızlı + pne: solunum"
+      },
+      {
+        category: "solunum",
+        name: "Apne",
+        pronunciation: "ap-ne",
+        description: "Solunumun geçici olarak durmasıdır.",
+        structure: "a-: yokluk + pne: solunum"
+      },
+      {
+        category: "solunum",
+        name: "Pnömoni",
+        pronunciation: "pnö-mo-ni",
+        description: "Akciğer dokusunda gelişen enfeksiyon ve iltihap durumudur.",
+        structure: "pneumon: akciğer"
+      },
+      {
+        category: "solunum",
+        name: "Bronkoskopi",
+        pronunciation: "bron-ko-sko-pi",
+        description: "Bronşların endoskopik yöntemle incelenmesidir.",
+        structure: "bronko: bronş + -skopi: inceleme"
+      },
+
+      {
+        category: "sindirim",
+        name: "Gastrit",
+        pronunciation: "gas-trit",
+        description: "Mide mukozasının iltihaplanmasıdır.",
+        structure: "gastr: mide + -it: iltihap"
+      },
+      {
+        category: "sindirim",
+        name: "Hepatit",
+        pronunciation: "he-pa-tit",
+        description: "Karaciğerin iltihaplanmasıdır.",
+        structure: "hepat: karaciğer + -it: iltihap"
+      },
+      {
+        category: "sindirim",
+        name: "Hepatomegali",
+        pronunciation: "he-pa-to-me-ga-li",
+        description: "Karaciğerin normal boyutlarından daha büyük olmasıdır.",
+        structure: "hepat: karaciğer + megali: büyüme"
+      },
+      {
+        category: "sindirim",
+        name: "Gastroenteroloji",
+        pronunciation: "gas-tro-en-te-ro-lo-ji",
+        description: "Sindirim sistemi hastalıklarını inceleyen tıp dalıdır.",
+        structure: "gastro: mide + entero: bağırsak + loji"
+      },
+      {
+        category: "sindirim",
+        name: "Disfaji",
+        pronunciation: "dis-fa-ji",
+        description: "Yutma güçlüğünü ifade eder.",
+        structure: "dis: güçlük + faji: yutma/yeme"
+      },
+      {
+        category: "sindirim",
+        name: "Gastrostomi",
+        pronunciation: "gas-tros-to-mi",
+        description: "Mideye cerrahi yolla bir açıklık oluşturulmasıdır.",
+        structure: "gastr: mide + stomi: açıklık oluşturma"
+      },
+
+      {
+        category: "sinir",
+        name: "Nöroloji",
+        pronunciation: "nö-ro-lo-ji",
+        description: "Sinir sistemi hastalıklarıyla ilgilenen tıp dalıdır.",
+        structure: "nöro: sinir + loji: bilim dalı"
+      },
+      {
+        category: "sinir",
+        name: "Nevralji",
+        pronunciation: "nev-ral-ji",
+        description: "Bir sinir boyunca hissedilen ağrıdır.",
+        structure: "neur: sinir + -alji: ağrı"
+      },
+      {
+        category: "sinir",
+        name: "Nöropati",
+        pronunciation: "nö-ro-pa-ti",
+        description: "Sinirlerin hastalık veya hasar durumunu ifade eder.",
+        structure: "nöro: sinir + pati: hastalık"
+      },
+      {
+        category: "sinir",
+        name: "Sefalalji",
+        pronunciation: "se-fa-lal-ji",
+        description: "Baş ağrısını ifade eden tıbbi terimdir.",
+        structure: "sefal: baş + -alji: ağrı"
+      },
+      {
+        category: "sinir",
+        name: "Ensefalit",
+        pronunciation: "en-se-fa-lit",
+        description: "Beyin dokusunun iltihaplanmasıdır.",
+        structure: "ensefal: beyin + -it: iltihap"
+      },
+      {
+        category: "sinir",
+        name: "Elektroensefalografi",
+        pronunciation: "e-lek-tro-en-se-fa-lo-gra-fi",
+        description: "Beyindeki elektriksel etkinliğin kaydedilmesidir.",
+        structure: "elektro: elektrik + ensefalo: beyin + grafi: kayıt"
+      },
+
+      {
+        category: "kas",
+        name: "Miyalji",
+        pronunciation: "mi-yal-ji",
+        description: "Kas ağrısını ifade eder.",
+        structure: "miy: kas + -alji: ağrı"
+      },
+      {
+        category: "kas",
+        name: "Artralji",
+        pronunciation: "ar-tral-ji",
+        description: "Eklem ağrısıdır.",
+        structure: "artr: eklem + -alji: ağrı"
+      },
+      {
+        category: "kas",
+        name: "Artrit",
+        pronunciation: "ar-trit",
+        description: "Eklem iltihabıdır.",
+        structure: "artr: eklem + -it: iltihap"
+      },
+      {
+        category: "kas",
+        name: "Osteoporoz",
+        pronunciation: "os-te-o-po-roz",
+        description: "Kemik yoğunluğunun azalması ve kemik kırılganlığının artması durumudur.",
+        structure: "osteo: kemik + poroz: gözeneklilik"
+      },
+      {
+        category: "kas",
+        name: "Tendinit",
+        pronunciation: "ten-di-nit",
+        description: "Tendonun iltihaplanmasını ifade eder.",
+        structure: "tendin: tendon + -it: iltihap"
+      },
+      {
+        category: "kas",
+        name: "Osteoloji",
+        pronunciation: "os-te-o-lo-ji",
+        description: "Kemikleri inceleyen anatomi dalıdır.",
+        structure: "osteo: kemik + loji: bilim dalı"
+      },
+
+      {
+        category: "üriner",
+        name: "Nefroloji",
+        pronunciation: "nef-ro-lo-ji",
+        description: "Böbrek hastalıklarıyla ilgilenen tıp dalıdır.",
+        structure: "nefr: böbrek + loji: bilim dalı"
+      },
+      {
+        category: "üriner",
+        name: "Hematüri",
+        pronunciation: "he-ma-tü-ri",
+        description: "İdrarda kan bulunmasıdır.",
+        structure: "hemat: kan + ür: idrar"
+      },
+      {
+        category: "üriner",
+        name: "Dizüri",
+        pronunciation: "di-zü-ri",
+        description: "İdrar yaparken ağrı veya güçlük hissedilmesidir.",
+        structure: "dis/diz: güçlük + ür: idrar"
+      },
+      {
+        category: "üriner",
+        name: "Poliüri",
+        pronunciation: "po-li-ü-ri",
+        description: "İdrar miktarının normalden fazla olmasıdır.",
+        structure: "poli: çok + üri: idrar"
+      },
+      {
+        category: "üriner",
+        name: "Sistit",
+        pronunciation: "sis-tit",
+        description: "Mesanenin iltihaplanmasıdır.",
+        structure: "sist: mesane + -it: iltihap"
+      },
+      {
+        category: "üriner",
+        name: "Nefrektomi",
+        pronunciation: "nef-rek-to-mi",
+        description: "Böbreğin cerrahi olarak çıkarılması işlemidir.",
+        structure: "nefr: böbrek + ektomi: cerrahi çıkarma"
+      },
+
+      {
+        category: "endokrin",
+        name: "Endokrinoloji",
+        pronunciation: "en-do-kri-no-lo-ji",
+        description: "Hormonları ve endokrin bezlerin işlevlerini inceleyen tıp dalıdır.",
+        structure: "endokrin + loji"
+      },
+      {
+        category: "endokrin",
+        name: "Hiperglisemi",
+        pronunciation: "hi-per-gli-se-mi",
+        description: "Kandaki glukoz düzeyinin normalden yüksek olmasıdır.",
+        structure: "hiper: yüksek + glis: şeker + emi: kan"
+      },
+      {
+        category: "endokrin",
+        name: "Hipoglisemi",
+        pronunciation: "hi-po-gli-se-mi",
+        description: "Kandaki glukoz düzeyinin normalden düşük olmasıdır.",
+        structure: "hipo: düşük + glis: şeker + emi: kan"
+      },
+      {
+        category: "endokrin",
+        name: "Tiroidektomi",
+        pronunciation: "ti-ro-id-ek-to-mi",
+        description: "Tiroid bezinin cerrahi olarak çıkarılması işlemidir.",
+        structure: "tiroid + ektomi: cerrahi çıkarma"
+      },
+      {
+        category: "endokrin",
+        name: "Akromegali",
+        pronunciation: "ak-ro-me-ga-li",
+        description: "Büyüme hormonu fazlalığıyla ilişkili olarak el, ayak ve yüz kemiklerinde büyümedir.",
+        structure: "akro: uç/ekstremite + megali: büyüme"
+      },
+      {
+        category: "endokrin",
+        name: "Hipotiroidi",
+        pronunciation: "hi-po-ti-ro-i-di",
+        description: "Tiroid bezinin yetersiz çalışması durumudur.",
+        structure: "hipo: düşük + tiroid"
+      },
+
+      {
+        category: "üreme",
+        name: "Jinekoloji",
+        pronunciation: "ji-ne-ko-lo-ji",
+        description: "Kadın üreme sistemi ve hastalıklarıyla ilgilenen tıp dalıdır.",
+        structure: "jineko: kadın + loji"
+      },
+      {
+        category: "üreme",
+        name: "Üroloji",
+        pronunciation: "ü-ro-lo-ji",
+        description: "Üriner sistem ve erkek üreme sistemiyle ilgilenen tıp dalıdır.",
+        structure: "üro: idrar/üriner sistem + loji"
+      },
+      {
+        category: "üreme",
+        name: "Histerektomi",
+        pronunciation: "his-te-rek-to-mi",
+        description: "Rahmin cerrahi olarak çıkarılması işlemidir.",
+        structure: "hister: rahim + ektomi: cerrahi çıkarma"
+      },
+      {
+        category: "üreme",
+        name: "Orşit",
+        pronunciation: "or-şit",
+        description: "Testisin iltihaplanmasıdır.",
+        structure: "orş: testis + -it: iltihap"
+      },
+      {
+        category: "üreme",
+        name: "Mamografi",
+        pronunciation: "ma-mo-gra-fi",
+        description: "Meme dokusunun görüntülenmesinde kullanılan radyolojik yöntemdir.",
+        structure: "mamo: meme + grafi: görüntüleme"
+      },
+
+      {
+        category: "genel",
+        name: "Biyopsi",
+        pronunciation: "bi-yop-si",
+        description: "Tanı amacıyla dokudan örnek alınması işlemidir.",
+        structure: "bio: yaşam/doku + opsi: inceleme"
+      },
+      {
+        category: "genel",
+        name: "Tomografi",
+        pronunciation: "to-mo-gra-fi",
+        description: "Vücudun kesitsel görüntülerinin elde edilmesini sağlayan görüntüleme yöntemidir.",
+        structure: "tomo: kesit + grafi: görüntüleme"
+      },
+      {
+        category: "genel",
+        name: "Radyografi",
+        pronunciation: "rad-yo-gra-fi",
+        description: "X-ışınları kullanılarak görüntü elde edilmesidir.",
+        structure: "radyo: ışın + grafi: kayıt/görüntüleme"
+      },
+      {
+        category: "genel",
+        name: "İntravenöz",
+        pronunciation: "in-tra-ve-nöz",
+        description: "Damar içine uygulanan veya damar içini ifade eden terimdir.",
+        structure: "intra: içinde + ven: damar"
+      },
+      {
+        category: "genel",
+        name: "Subkutan",
+        pronunciation: "sub-ku-tan",
+        description: "Deri altını ifade eden terimdir.",
+        structure: "sub: alt + kutan: deri"
+      },
+      {
+        category: "genel",
+        name: "İntramüsküler",
+        pronunciation: "in-tra-müs-kü-ler",
+        description: "Kas içine uygulanan veya kas içini ifade eden terimdir.",
+        structure: "intra: içinde + müsküler: kas"
+      },
+      {
+        category: "genel",
+        name: "Endoskopi",
+        pronunciation: "en-dos-ko-pi",
+        description: "Vücut içindeki organ ve boşlukların özel bir cihazla görüntülenmesidir.",
+        structure: "endo: iç + skopi: görüntüleme/inceleme"
+      },
+      {
+        category: "genel",
+        name: "Elektrokardiyografi",
+        pronunciation: "e-lek-tro-kar-di-yo-gra-fi",
+        description: "Kalbin elektriksel aktivitesinin kaydedilmesidir.",
+        structure: "elektro: elektrik + kardiyo: kalp + grafi: kayıt"
+      }
+    ];
+
+    const quizQuestions = [
+      {
+        category: "kalp",
+        question: "'Kardiy/o' kelime kökü neyi ifade eder?",
+        options: ["Kalp", "Böbrek", "Karaciğer", "Akciğer"],
+        answer: "Kalp",
+        explanation: "Kardiy/o, kalbi ifade eden kelime köküdür."
+      },
+      {
+        category: "kalp",
+        question: "Taşikardi ne anlama gelir?",
+        options: ["Kalp hızının artması", "Kalp hızının azalması", "Solunumun durması", "Kan şekerinin düşmesi"],
+        answer: "Kalp hızının artması",
+        explanation: "Taşi hızlı, kardiy ise kalp anlamındadır."
+      },
+      {
+        category: "kalp",
+        question: "Bradikardi hangi durumu ifade eder?",
+        options: ["Kalp atımının yavaşlaması", "Kalp atımının hızlanması", "Yüksek kan şekeri", "Eklem ağrısı"],
+        answer: "Kalp atımının yavaşlaması",
+        explanation: "Bradi- ön eki yavaş anlamı taşır."
+      },
+      {
+        category: "kalp",
+        question: "Hipertansiyon ne demektir?",
+        options: ["Yüksek kan basıncı", "Düşük kan basıncı", "Düşük vücut sıcaklığı", "Akciğer enfeksiyonu"],
+        answer: "Yüksek kan basıncı",
+        explanation: "Hiper- ön eki yüksek veya aşırı anlamına gelir."
+      },
+      {
+        category: "kalp",
+        question: "Aritmi hangi durumdur?",
+        options: ["Kalp ritmi bozukluğu", "Böbrek iltihabı", "Mide büyümesi", "Kas güçsüzlüğü"],
+        answer: "Kalp ritmi bozukluğu",
+        explanation: "Aritmi, kalbin normal ritim düzeninden sapmasını ifade eder."
+      },
+
+      {
+        category: "solunum",
+        question: "Dispne teriminin anlamı nedir?",
+        options: ["Nefes darlığı", "Baş ağrısı", "İdrarda kan", "Eklem iltihabı"],
+        answer: "Nefes darlığı",
+        explanation: "Dispne, nefes almada güçlük veya nefes darlığı hissidir."
+      },
+      {
+        category: "solunum",
+        question: "Apne ne anlama gelir?",
+        options: ["Solunumun geçici durması", "Hızlı kalp atımı", "Yüksek tansiyon", "Yutma güçlüğü"],
+        answer: "Solunumun geçici durması",
+        explanation: "Apne, solunumun geçici olarak durmasıdır."
+      },
+      {
+        category: "solunum",
+        question: "Taşipne hangi durumu ifade eder?",
+        options: ["Solunum sayısının artması", "Solunum sayısının azalması", "Kalp atımının azalması", "İdrar miktarının artması"],
+        answer: "Solunum sayısının artması",
+        explanation: "Taşi- hızlı anlamındadır; -pne solunumla ilişkilidir."
+      },
+      {
+        category: "solunum",
+        question: "Pnömoni hangi organla ilişkilidir?",
+        options: ["Akciğer", "Böbrek", "Mide", "Mesane"],
+        answer: "Akciğer",
+        explanation: "Pnömoni, akciğer dokusunda gelişen enfeksiyondur."
+      },
+      {
+        category: "solunum",
+        question: "Bronkoskopi hangi yapının incelenmesidir?",
+        options: ["Bronşlar", "Böbrekler", "Mide", "Eklemler"],
+        answer: "Bronşlar",
+        explanation: "Bronkoskopi, bronşların endoskopik incelemesidir."
+      },
+
+      {
+        category: "sindirim",
+        question: "'Gastr' kelime kökü neyi ifade eder?",
+        options: ["Mide", "Kalp", "Sinir", "Kemik"],
+        answer: "Mide",
+        explanation: "Gastr/gastro kelime kökü mide anlamında kullanılır."
+      },
+      {
+        category: "sindirim",
+        question: "Hepatit ne anlama gelir?",
+        options: ["Karaciğer iltihabı", "Böbrek büyümesi", "Kas ağrısı", "Kalp ritmi bozukluğu"],
+        answer: "Karaciğer iltihabı",
+        explanation: "Hepat- karaciğeri, -it ise iltihabı ifade eder."
+      },
+      {
+        category: "sindirim",
+        question: "Hepatomegali ne demektir?",
+        options: ["Karaciğer büyümesi", "Mide iltihabı", "Bağırsak ağrısı", "Böbrek yetmezliği"],
+        answer: "Karaciğer büyümesi",
+        explanation: "Hepat karaciğer, megali ise büyüme anlamındadır."
+      },
+      {
+        category: "sindirim",
+        question: "Disfaji ne anlama gelir?",
+        options: ["Yutma güçlüğü", "Nefes darlığı", "Baş dönmesi", "Kan basıncı yüksekliği"],
+        answer: "Yutma güçlüğü",
+        explanation: "Disfaji, yutma güçlüğünü ifade eder."
+      },
+      {
+        category: "sindirim",
+        question: "Gastroenteroloji hangi alanı inceler?",
+        options: ["Sindirim sistemi", "Sinir sistemi", "Kas sistemi", "Deri sistemi"],
+        answer: "Sindirim sistemi",
+        explanation: "Gastroenteroloji, sindirim sistemi hastalıklarıyla ilgilenir."
+      },
+
+      {
+        category: "sinir",
+        question: "Nöroloji hangi sistemi inceler?",
+        options: ["Sinir sistemi", "Sindirim sistemi", "Üriner sistem", "Kas-iskelet sistemi"],
+        answer: "Sinir sistemi",
+        explanation: "Nöroloji, sinir sistemi hastalıklarıyla ilgilenen tıp dalıdır."
+      },
+      {
+        category: "sinir",
+        question: "Nevralji ne anlama gelir?",
+        options: ["Sinir ağrısı", "Kas büyümesi", "Mide iltihabı", "Yüksek kan şekeri"],
+        answer: "Sinir ağrısı",
+        explanation: "Neur sinir, -alji ise ağrı anlamına gelir."
+      },
+      {
+        category: "sinir",
+        question: "Nöropati hangi yapıyla ilişkilidir?",
+        options: ["Sinirler", "Kemikler", "Mide", "Akciğer"],
+        answer: "Sinirler",
+        explanation: "Nöropati, sinirlerdeki hastalık veya hasarı ifade eder."
+      },
+      {
+        category: "sinir",
+        question: "Sefalalji ne demektir?",
+        options: ["Baş ağrısı", "Eklem ağrısı", "İdrar güçlüğü", "Solunum hızlanması"],
+        answer: "Baş ağrısı",
+        explanation: "Sefal- baş, -alji ağrı anlamındadır."
+      },
+      {
+        category: "sinir",
+        question: "Ensefalit ne anlama gelir?",
+        options: ["Beyin iltihabı", "Kalp büyümesi", "Mesane iltihabı", "Kemik erimesi"],
+        answer: "Beyin iltihabı",
+        explanation: "Ensefal- beyin, -it iltihap anlamına gelir."
+      },
+
+      {
+        category: "kas",
+        question: "'Miy/o' kelime kökü neyi ifade eder?",
+        options: ["Kas", "Kalp", "Böbrek", "Mide"],
+        answer: "Kas",
+        explanation: "Miy/o, kas anlamına gelen bir kelime köküdür."
+      },
+      {
+        category: "kas",
+        question: "Artralji ne demektir?",
+        options: ["Eklem ağrısı", "Kas iltihabı", "Beyin iltihabı", "Solunum güçlüğü"],
+        answer: "Eklem ağrısı",
+        explanation: "Artr- eklem, -alji ağrı anlamındadır."
+      },
+      {
+        category: "kas",
+        question: "Artrit hangi durumu ifade eder?",
+        options: ["Eklem iltihabı", "Karaciğer büyümesi", "Kalp ritmi", "Kan şekeri düşüklüğü"],
+        answer: "Eklem iltihabı",
+        explanation: "Artr- eklem, -it iltihap anlamına gelir."
+      },
+      {
+        category: "kas",
+        question: "Osteo- ön eki veya kökü neyle ilişkilidir?",
+        options: ["Kemik", "Sinir", "Kan", "Akciğer"],
+        answer: "Kemik",
+        explanation: "Osteo- kemik anlamında kullanılır."
+      },
+      {
+        category: "kas",
+        question: "Tendinit hangi yapıyla ilişkilidir?",
+        options: ["Tendon", "Böbrek", "Mide", "Kalp kapağı"],
+        answer: "Tendon",
+        explanation: "Tendinit, tendonun iltihaplanmasını ifade eder."
+      },
+
+      {
+        category: "üriner",
+        question: "'Nefr/o' kelime kökü ne demektir?",
+        options: ["Böbrek", "Karaciğer", "Mide", "Kalp"],
+        answer: "Böbrek",
+        explanation: "Nefr/o, böbrek anlamında kullanılır."
+      },
+      {
+        category: "üriner",
+        question: "Hematüri ne anlama gelir?",
+        options: ["İdrarda kan", "İdrar yapamama", "Mide ağrısı", "Kas ağrısı"],
+        answer: "İdrarda kan",
+        explanation: "Hemat- kan, -üri idrarla ilgili durumu ifade eder."
+      },
+      {
+        category: "üriner",
+        question: "Dizüri hangi belirtidir?",
+        options: ["Ağrılı veya güç idrar yapma", "Nefes darlığı", "Hızlı kalp atımı", "Yutma güçlüğü"],
+        answer: "Ağrılı veya güç idrar yapma",
+        explanation: "Dizüri, idrar yaparken ağrı veya güçlük hissidir."
+      },
+      {
+        category: "üriner",
+        question: "Poliüri ne anlama gelir?",
+        options: ["İdrar miktarının artması", "İdrarda kan bulunması", "Böbreğin çıkarılması", "Solunumun durması"],
+        answer: "İdrar miktarının artması",
+        explanation: "Poli- çok, -üri ise idrarla ilgili anlam taşır."
+      },
+      {
+        category: "üriner",
+        question: "Sistit hangi organla ilişkilidir?",
+        options: ["Mesane", "Akciğer", "Mide", "Beyin"],
+        answer: "Mesane",
+        explanation: "Sistit, mesanenin iltihaplanmasıdır."
+      },
+
+      {
+        category: "endokrin",
+        question: "Endokrinoloji neyi inceler?",
+        options: ["Hormonları ve endokrin bezleri", "Kemik kırıklarını", "Akciğerleri", "Kas yırtıklarını"],
+        answer: "Hormonları ve endokrin bezleri",
+        explanation: "Endokrinoloji, hormonlar ve hormon salgılayan bezlerle ilgilenir."
+      },
+      {
+        category: "endokrin",
+        question: "Hiperglisemi ne demektir?",
+        options: ["Kan şekerinin yükselmesi", "Kan şekerinin düşmesi", "Kan basıncının düşmesi", "Solunumun yavaşlaması"],
+        answer: "Kan şekerinin yükselmesi",
+        explanation: "Hiper- yüksek, glis- şeker anlamına gelir."
+      },
+      {
+        category: "endokrin",
+        question: "Hipoglisemi ne anlama gelir?",
+        options: ["Kan şekerinin düşmesi", "Kan şekerinin yükselmesi", "Kalp ritmi bozukluğu", "Böbrek iltihabı"],
+        answer: "Kan şekerinin düşmesi",
+        explanation: "Hipo- düşük anlamını taşır."
+      },
+      {
+        category: "endokrin",
+        question: "Tiroidektomi hangi işlemdir?",
+        options: ["Tiroid bezinin cerrahi çıkarılması", "Böbrek görüntülemesi", "Mide iltihabı", "Kalp ritminin kaydedilmesi"],
+        answer: "Tiroid bezinin cerrahi çıkarılması",
+        explanation: "-Ektomi, cerrahi olarak çıkarma işlemini ifade eder."
+      },
+      {
+        category: "endokrin",
+        question: "Hipotiroidi hangi durumu anlatır?",
+        options: ["Tiroid bezinin yetersiz çalışması", "Tiroid bezinin cerrahi çıkarılması", "Akciğer iltihabı", "Yüksek kan basıncı"],
+        answer: "Tiroid bezinin yetersiz çalışması",
+        explanation: "Hipotiroidi, tiroid hormonlarının yetersizliğiyle ilişkili bir durumdur."
+      },
+
+      {
+        category: "üreme",
+        question: "Jinekoloji hangi alanla ilgilenir?",
+        options: ["Kadın üreme sistemi", "Sinir sistemi", "Solunum sistemi", "Kemikler"],
+        answer: "Kadın üreme sistemi",
+        explanation: "Jinekoloji, kadın üreme sistemi ve hastalıklarıyla ilgilenir."
+      },
+      {
+        category: "üreme",
+        question: "Histerektomi ne demektir?",
+        options: ["Rahmin cerrahi olarak çıkarılması", "Böbreğin görüntülenmesi", "Mideye açıklık oluşturulması", "Tendon iltihabı"],
+        answer: "Rahmin cerrahi olarak çıkarılması",
+        explanation: "Hister- rahim, -ektomi cerrahi çıkarma anlamındadır."
+      },
+      {
+        category: "üreme",
+        question: "Orşit hangi durumu ifade eder?",
+        options: ["Testis iltihabı", "Beyin iltihabı", "Mesane iltihabı", "Karaciğer büyümesi"],
+        answer: "Testis iltihabı",
+        explanation: "Orşit, testisin iltihaplanmasıdır."
+      },
+      {
+        category: "üreme",
+        question: "Mamografi hangi organın görüntülenmesiyle ilişkilidir?",
+        options: ["Meme", "Böbrek", "Kalp", "Mide"],
+        answer: "Meme",
+        explanation: "Mamografi, meme dokusunun radyolojik olarak görüntülenmesinde kullanılır."
+      },
+      {
+        category: "üreme",
+        question: "Üroloji hangi alanları kapsar?",
+        options: ["Üriner sistem ve erkek üreme sistemi", "Yalnız sinir sistemi", "Yalnız solunum sistemi", "Yalnız kemikler"],
+        answer: "Üriner sistem ve erkek üreme sistemi",
+        explanation: "Üroloji, üriner sistem ve erkek üreme sistemi hastalıklarıyla ilgilenir."
+      },
+
+      {
+        category: "genel",
+        question: "Biyopsi işleminin amacı nedir?",
+        options: ["Tanı için doku örneği almak", "Kalp hızını artırmak", "Solunumu durdurmak", "Kan basıncını ölçmek"],
+        answer: "Tanı için doku örneği almak",
+        explanation: "Biyopsi, incelenmek üzere doku örneği alınmasıdır."
+      },
+      {
+        category: "genel",
+        question: "Tomografi nasıl bir yöntemdir?",
+        options: ["Kesitsel görüntüleme", "Doku dondurma", "İdrar ölçümü", "Kas gücü testi"],
+        answer: "Kesitsel görüntüleme",
+        explanation: "Tomografi vücudun kesitsel görüntülerini oluşturur."
+      },
+      {
+        category: "genel",
+        question: "İntravenöz ne demektir?",
+        options: ["Damar içi", "Deri altı", "Kas içi", "Ağız yoluyla"],
+        answer: "Damar içi",
+        explanation: "İntra- içinde, ven damar anlamına gelir."
+      },
+      {
+        category: "genel",
+        question: "Subkutan ne anlama gelir?",
+        options: ["Deri altı", "Damar içi", "Kas içi", "Kemik içi"],
+        answer: "Deri altı",
+        explanation: "Sub- alt, kutan- deri anlamındadır."
+      },
+      {
+        category: "genel",
+        question: "Endoskopi neyi ifade eder?",
+        options: ["Vücut içinin cihazla görüntülenmesi", "Kemik çıkarılması", "Kan şekeri düşmesi", "Kalp atımının yavaşlaması"],
+        answer: "Vücut içinin cihazla görüntülenmesi",
+        explanation: "Endoskopi, özel bir cihazla organ ve vücut boşluklarının incelenmesidir."
+      }
+    ];
+
     const sidebar = document.getElementById("sidebar");
     const menuButton = document.getElementById("menuButton");
     const navLinks = document.querySelectorAll(".sidebar nav a");
 
     menuButton.addEventListener("click", () => {
-      const isOpen = sidebar.classList.toggle("open");
-      menuButton.setAttribute("aria-expanded", String(isOpen));
+      const opened = sidebar.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", String(opened));
     });
 
-    navLinks.forEach((link) => {
+    navLinks.forEach(link => {
       link.addEventListener("click", () => {
-        navLinks.forEach((item) => item.classList.remove("active"));
+        navLinks.forEach(item => item.classList.remove("active"));
         link.classList.add("active");
 
-        if (window.innerWidth <= 800) {
-          sidebar.classList.remove("open");
-          menuButton.setAttribute("aria-expanded", "false");
-        }
+        sidebar.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
       });
     });
 
-    const searchInput = document.getElementById("termSearch");
-    const searchButton = document.getElementById("searchButton");
-    const filterButtons = document.querySelectorAll(".filter-button");
-    const termCards = [...document.querySelectorAll(".term-card")];
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("termCount").textContent = terms.length;
+    document.getElementById("quizCountDisplay").textContent = quizQuestions.length;
+
+    const termGrid = document.getElementById("termGrid");
+    const termSearch = document.getElementById("termSearch");
     const noResult = document.getElementById("noResult");
+    const filterButtons = document.querySelectorAll(".filter-button");
 
-    let activeFilter = "tümü";
+    let currentTermFilter = "tümü";
 
-    function normalizeText(text) {
-      return text
-        .toLocaleLowerCase("tr-TR")
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "");
-    }
+    function renderTerms() {
+      const searchText = termSearch.value.trim().toLocaleLowerCase("tr-TR");
 
-    function filterTerms() {
-      const query = normalizeText(searchInput.value.trim());
-      let visibleCount = 0;
+      const filteredTerms = terms.filter(term => {
+        const content = [
+          term.name,
+          term.description,
+          term.structure,
+          categories[term.category]
+        ].join(" ").toLocaleLowerCase("tr-TR");
 
-      termCards.forEach((card) => {
-        const category = card.dataset.category;
-        const searchableText = normalizeText(
-          `${card.dataset.search} ${card.textContent}`
-        );
+        const matchesCategory =
+          currentTermFilter === "tümü" ||
+          term.category === currentTermFilter;
 
-        const categoryMatches =
-          activeFilter === "tümü" || category === activeFilter;
-        const searchMatches =
-          query === "" || searchableText.includes(query);
+        const matchesSearch = content.includes(searchText);
 
-        const isVisible = categoryMatches && searchMatches;
-        card.classList.toggle("hidden", !isVisible);
-
-        if (isVisible) {
-          visibleCount++;
-        }
+        return matchesCategory && matchesSearch;
       });
 
-      noResult.style.display = visibleCount === 0 ? "block" : "none";
+      termGrid.innerHTML = filteredTerms.map(term => `
+        <article class="term-card">
+          <span class="tag">${categories[term.category]}</span>
+          <h3>${term.name}</h3>
+          <span class="pronunciation">${term.pronunciation}</span>
+          <p>${term.description}</p>
+          <div class="term-origin"><strong>Kelime yapısı:</strong> ${term.structure}</div>
+        </article>
+      `).join("");
+
+      noResult.style.display = filteredTerms.length ? "none" : "block";
     }
 
-    searchInput.addEventListener("input", filterTerms);
-    searchButton.addEventListener("click", filterTerms);
-
-    filterButtons.forEach((button) => {
+    filterButtons.forEach(button => {
       button.addEventListener("click", () => {
-        filterButtons.forEach((item) => item.classList.remove("active"));
+        filterButtons.forEach(item => item.classList.remove("active"));
         button.classList.add("active");
-        activeFilter = button.dataset.filter;
-        filterTerms();
+        currentTermFilter = button.dataset.filter;
+        renderTerms();
       });
     });
 
-    document.getElementById("termCount").textContent = termCards.length;
+    termSearch.addEventListener("input", renderTerms);
+    document.getElementById("searchButton").addEventListener("click", renderTerms);
+    termSearch.addEventListener("keydown", event => {
+      if (event.key === "Enter") renderTerms();
+    });
 
-    const quizQuestions = [
-      {
-        question: "\"-it\" son eki tıbbi terminolojide neyi ifade eder?",
-        options: ["İltihap", "Cerrahi çıkarma", "Ağrı", "Büyüme"],
-        answer: 0,
-        explanation: "\"-it\" son eki genellikle iltihap anlamına gelir."
-      },
-      {
-        question: "\"Hepat\" kökü hangi organı ifade eder?",
-        options: ["Böbrek", "Kalp", "Karaciğer", "Akciğer"],
-        answer: 2,
-        explanation: "\"Hepat\" kökü karaciğeri ifade eder."
-      },
-      {
-        question: "\"Bradipne\" teriminin doğru anlamı hangisidir?",
-        options: [
-          "Hızlı kalp atımı",
-          "Yavaş solunum",
-          "Nefes darlığı",
-          "Solunumun durması"
-        ],
-        answer: 1,
-        explanation: "\"Bradi\" yavaş, \"pne\" ise solunum anlamına gelir."
-      }
-    ];
+    renderTerms();
 
-    let currentQuestion = 0;
+    let selectedQuestions = [];
+    let currentQuestionIndex = 0;
     let score = 0;
     let answered = false;
+    let displayedOptions = [];
 
+    const quizCategory = document.getElementById("quizCategory");
+    const quizCount = document.getElementById("quizCount");
+    const questionNumber = document.getElementById("questionNumber");
+    const questionTotal = document.getElementById("questionTotal");
+    const scoreElement = document.getElementById("score");
+    const progressBar = document.getElementById("progressBar");
     const questionText = document.getElementById("questionText");
     const optionsContainer = document.getElementById("options");
     const feedback = document.getElementById("feedback");
     const nextButton = document.getElementById("nextButton");
-    const scoreElement = document.getElementById("score");
-    const questionNumber = document.getElementById("questionNumber");
-    const questionTotal = document.getElementById("questionTotal");
-    const progressBar = document.getElementById("progressBar");
+    const quizResult = document.getElementById("quizResult");
+    const quizCategoryLabel = document.getElementById("quizCategoryLabel");
 
-    questionTotal.textContent = quizQuestions.length;
+    function shuffle(array) {
+      const result = [...array];
 
-    function loadQuestion() {
-      answered = false;
-      const question = quizQuestions[currentQuestion];
-
-      questionNumber.textContent = currentQuestion + 1;
-      questionText.textContent = question.question;
-      feedback.textContent = "";
-      nextButton.style.display = "none";
-      nextButton.textContent =
-        currentQuestion === quizQuestions.length - 1
-          ? "Sonucu Gör"
-          : "Sonraki Soru";
-
-      optionsContainer.innerHTML = "";
-
-      question.options.forEach((option, index) => {
-        const button = document.createElement("button");
-        button.className = "option";
-        button.type = "button";
-        button.textContent = option;
-        button.addEventListener("click", () => selectAnswer(index, button));
-        optionsContainer.appendChild(button);
-      });
-
-      progressBar.style.width =
-        `${(currentQuestion / quizQuestions.length) * 100}%`;
-    }
-
-    function selectAnswer(selectedIndex, selectedButton) {
-      if (answered) return;
-
-      answered = true;
-      const question = quizQuestions[currentQuestion];
-      const optionButtons = document.querySelectorAll(".option");
-
-      optionButtons.forEach((button) => {
-        button.disabled = true;
-      });
-
-      optionButtons[question.answer].classList.add("correct");
-
-      if (selectedIndex === question.answer) {
-        score++;
-        scoreElement.textContent = score;
-        feedback.textContent = `Doğru! ${question.explanation}`;
-        feedback.style.color = "#15803d";
-      } else {
-        selectedButton.classList.add("wrong");
-        feedback.textContent = `Yanlış. ${question.explanation}`;
-        feedback.style.color = "#dc2626";
+      for (let i = result.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [result[i], result[j]] = [result[j], result[i]];
       }
 
-      nextButton.style.display = "inline-block";
-      progressBar.style.width =
-        `${((currentQuestion + 1) / quizQuestions.length) * 100}%`;
+      return result;
     }
 
-    nextButton.addEventListener("click", () => {
-      if (currentQuestion < quizQuestions.length - 1) {
-        currentQuestion++;
-        loadQuestion();
+    function startQuiz() {
+      const selectedCategory = quizCategory.value;
+
+      const availableQuestions = quizQuestions.filter(question =>
+        selectedCategory === "tümü" ||
+        question.category === selectedCategory
+      );
+
+      if (availableQuestions.length === 0) {
+        questionText.textContent = "Bu bölümde henüz soru bulunmuyor.";
         return;
       }
 
-      questionText.textContent =
-        `Test tamamlandı: ${quizQuestions.length} soruda ${score} doğru!`;
-      optionsContainer.innerHTML = "";
-      feedback.textContent =
-        score === quizQuestions.length
-          ? "Tebrikler, tüm soruları doğru yanıtladınız."
-          : "Terim kartlarını tekrar inceleyerek puanınızı geliştirebilirsiniz.";
-      feedback.style.color = score === quizQuestions.length
-        ? "#15803d"
-        : "#075985";
+      const requestedCount = quizCount.value === "all"
+        ? availableQuestions.length
+        : Number(quizCount.value);
 
-      nextButton.textContent = "Testi Yeniden Başlat";
-      nextButton.style.display = "inline-block";
-      nextButton.onclick = restartQuiz;
-    });
+      selectedQuestions = shuffle(availableQuestions).slice(
+        0,
+        Math.min(requestedCount, availableQuestions.length)
+      );
 
-    function restartQuiz() {
-      currentQuestion = 0;
+      currentQuestionIndex = 0;
       score = 0;
-      scoreElement.textContent = score;
-      nextButton.onclick = null;
+      answered = false;
+
+      scoreElement.textContent = "0";
+      questionTotal.textContent = selectedQuestions.length;
+      quizResult.style.display = "none";
+      nextButton.style.display = "none";
+
       loadQuestion();
     }
 
-    document.getElementById("year").textContent = new Date().getFullYear();
+    function loadQuestion() {
+      answered = false;
 
-    loadQuestion();
+      const question = selectedQuestions[currentQuestionIndex];
+
+      if (!question) {
+        showQuizResult();
+        return;
+      }
+
+      questionNumber.textContent = currentQuestionIndex + 1;
+      scoreElement.textContent = score;
+      progressBar.style.width =
+        `${(currentQuestionIndex / selectedQuestions.length) * 100}%`;
+
+      quizCategoryLabel.textContent = categories[question.category];
+      questionText.textContent = question.question;
+      feedback.textContent = "";
+      nextButton.style.display = "none";
+      quizResult.style.display = "none";
+
+      displayedOptions = shuffle(
+        question.options.map(option => ({
+          text: option,
+          correct: option === question.answer
+        }))
+      );
+
+      optionsContainer.innerHTML = "";
+
+      displayedOptions.forEach(option => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "option";
+        button.textContent = option.text;
+        button.addEventListener("click", () => selectAnswer(button, option));
+        optionsContainer.appendChild(button);
+      });
+    }
+
+    function selectAnswer(button, option) {
+      if (answered) return;
+
+      answered = true;
+
+      const question = selectedQuestions[currentQuestionIndex];
+      const optionButtons = optionsContainer.querySelectorAll(".option");
+
+      optionButtons.forEach(optionButton => {
+        optionButton.disabled = true;
+
+        const actualOption = displayedOptions.find(
+          item => item.text === optionButton.textContent
+        );
+
+        if (actualOption && actualOption.correct) {
+          optionButton.classList.add("correct");
+        }
+      });
+
+      if (option.correct) {
+        score++;
+        feedback.textContent = "✅ Doğru cevap!";
+        feedback.style.color = "#15803d";
+      } else {
+        button.classList.add("wrong");
+        feedback.textContent = "❌ Yanlış cevap. Doğru yanıt: " + question.answer;
+        feedback.style.color = "#dc2626";
+      }
+
+      feedback.textContent += " " + question.explanation;
+      scoreElement.textContent = score;
+      progressBar.style.width =
+        `${((currentQuestionIndex + 1) / selectedQuestions.length) * 100}%`;
+
+      nextButton.textContent =
+        currentQuestionIndex === selectedQuestions.length - 1
+          ? "Sonuçları Gör"
+          : "Sonraki Soru";
+
+      nextButton.style.display = "inline-block";
+    }
+
+    function nextQuestion() {
+      if (currentQuestionIndex < selectedQuestions.length - 1) {
+        currentQuestionIndex++;
+        loadQuestion();
+      } else {
+        showQuizResult();
+      }
+    }
+
+    function showQuizResult() {
+      const total = selectedQuestions.length;
+      const percentage = total ? Math.round((score / total) * 100) : 0;
+
+      progressBar.style.width = "100%";
+      questionNumber.textContent = total;
+      questionTotal.textContent = total;
+      scoreElement.textContent = score;
+      optionsContainer.innerHTML = "";
+      feedback.textContent = "";
+      nextButton.style.display = "none";
+      quizCategoryLabel.textContent = "Test tamamlandı";
+      questionText.textContent = "Quiz sonuçların hazır!";
+
+      let message;
+
+      if (percentage >= 90) {
+        message = "Mükemmel! Tıbbi terminoloji bilgin çok iyi.";
+      } else if (percentage >= 70) {
+        message = "Çok iyi! Birkaç tekrar ile daha da başarılı olabilirsin.";
+      } else if (percentage >= 50) {
+        message = "İyi bir başlangıç. Yanlış cevapladığın terimleri tekrar incele.";
+      } else {
+        message = "Temel terimleri gözden geçirip testi yeniden çözebilirsin.";
+      }
+
+      quizResult.innerHTML = `
+        <h3>🎉 Test Tamamlandı</h3>
+        <p><strong>Doğru cevap:</strong> ${score} / ${total}</p>
+        <p><strong>Başarı oranı:</strong> %${percentage}</p>
+        <p>${message}</p>
+        <button class="quiz-start" id="retryQuizButton" type="button">
+          🔄 Yeniden Başla
+        </button>
+      `;
+
+      quizResult.style.display = "block";
+
+      document.getElementById("retryQuizButton").addEventListener("click", startQuiz);
+    }
+
+    document.getElementById("startQuizButton").addEventListener("click", startQuiz);
+    nextButton.addEventListener("click", nextQuestion);
   </script>
 </body>
 </html>
